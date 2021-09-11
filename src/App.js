@@ -14,7 +14,7 @@ import {
 } from "react-router-dom";
 
 function App() {
-  const user = false;/*for testing purposes*/
+  const user = false; /*for testing purposes*/
   return (
     <Router>
       <TopBar/>
@@ -23,16 +23,17 @@ function App() {
             <Home />
         </Route>
         <Route path="/register">
-            <Register/>
+           { user? <Home/> : <Register/>} 
+           {/* if there's a user go to home else to register */}
         </Route>
         <Route path="/login">
-            <Login/>
+          { user? <Home/> : <Login/>} 
         </Route>
         <Route path="/write">
-            <Write/>
+          { user? <Write/> : <Register/>} 
         </Route>
         <Route path="/settings">
-            <Settings/>
+          { user? <Settings/> : <Register/>} 
         </Route>
         <Route path="/post/:postId">
             <Single/>

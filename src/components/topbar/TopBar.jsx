@@ -1,6 +1,9 @@
+import { Link } from "react-router-dom";
 import "./topbar.css"
 
 export default function TopBar() {
+    const user = false;
+    const linkStyle= {textDecoration: "none", color:"inherit"};
     return (
         <div className="top">
             <div className="topLeft">
@@ -11,16 +14,38 @@ export default function TopBar() {
             </div>
             <div className="topCenter">
                 <ul className="topList">
-                    <li className="topListItem">Home</li>
-                    <li className="topListItem">About</li>
-                    <li className="topListItem">Contact</li>
-                    <li className="topListItem">Write</li>
-                    <li className="topListItem">Login</li>
-                    <li className="topListItem">Register</li>
+                    <li className="topListItem">
+                        <Link to="/" style={linkStyle}>Home</Link>
+                    </li>
+                    <li className="topListItem">
+                        <Link to="/about" style={linkStyle}>About</Link>
+                    </li>
+                    <li className="topListItem">
+                        <Link to="/contact" style={linkStyle}>Contact</Link>
+                    </li>
+                    <li className="topListItem">
+                        <Link to="/write" style={linkStyle}>Write</Link>
+                    </li>
+                    <li className="topListItem">
+                        <Link to="/login" style={linkStyle}>{user && "Logout"}</Link>
+                    </li>
                 </ul>
             </div>
             <div className="topRight">
-                <img className="topImg" src="https://images.pexels.com/photos/3922074/pexels-photo-3922074.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="" />
+                { user ? (
+                  <img className="topImg" src="https://images.pexels.com/photos/3922074/pexels-photo-3922074.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="" />
+                ) : 
+                <ul className="topList">
+                    <li className="topListItem">
+                        <Link to="/login" style={linkStyle}>Login</Link>
+                    </li>
+                    <li className="topListItem">
+                        <Link to="/register" style={linkStyle}>Register</Link>
+                    </li>
+                    
+                </ul>
+                }
+                
 
                 <i className="topSearchIcon fas fa-search"></i>
 
