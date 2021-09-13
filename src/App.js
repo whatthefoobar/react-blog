@@ -9,8 +9,7 @@ import Register from "../src/pages/Register";
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
 
 function App() {
@@ -45,3 +44,5 @@ function App() {
 
 
 export default App;
+
+
