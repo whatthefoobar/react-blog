@@ -11,15 +11,21 @@ import {
   Switch,
   Route
 } from "react-router-dom";
+import About from "./pages/About";
+
+
 
 function App() {
-  const user = false; /*for testing purposes*/
+  const user = true; /*for testing purposes*/
   return (
     <Router>
       <TopBar/>
       <Switch>
         <Route exact path="/">
             <Home />
+        </Route>
+        <Route path="/about">
+          <About/>  
         </Route>
         <Route path="/register">
            { user? <Home/> : <Register/>} 
@@ -38,6 +44,8 @@ function App() {
             <Single/>
         </Route>
       </Switch>
+
+
     </Router>
   );
 }

@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import "../css/topbar.css";
 
 export default function TopBar() {
-    const user = false;
+    const user = true;
     const linkStyle= {textDecoration: "none", color:"inherit"};
     return (
         <div className="top">

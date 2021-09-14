@@ -1,0 +1,29 @@
+.about{
+    display:flex;
+    gap:20px;
+}
+.aboutContent{
+    flex:10;
+    margin-top: 50px;
+
+    .aboutTitle {
+        
+        display: flex;
+        justify-content: center;
+        padding: 20px;
+        font-size: 25px;
+    }
+
+    .aboutDescription{
+        padding: 25px 0 25px 25px;
+        text-indent: 50px;
+        font-size: 20px;
+        color:#666;
+        line-height: 30px;
+
+        &::first-letter{
+            font-size: 30px;
+            font-weight: 600;
+        }
+    }
+}

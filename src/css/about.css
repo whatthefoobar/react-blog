@@ -1,0 +1,38 @@
+.about {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 20px;
+}
+
+.aboutContent {
+  -webkit-box-flex: 10;
+      -ms-flex: 10;
+          flex: 10;
+  margin-top: 50px;
+}
+
+.aboutContent .aboutTitle {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 20px;
+  font-size: 25px;
+}
+
+.aboutContent .aboutDescription {
+  padding: 25px 0 25px 25px;
+  text-indent: 50px;
+  font-size: 20px;
+  color: #666;
+  line-height: 30px;
+}
+
+.aboutContent .aboutDescription::first-letter {
+  font-size: 30px;
+  font-weight: 600;
+}
+/*# sourceMappingURL=about.css.map */
