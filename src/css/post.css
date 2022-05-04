@@ -1,6 +1,5 @@
 .post {
-  width: 480px;
-  margin: 0px 25px 40px 25px;
+  width: 300px;
 }
 
 .postImg {
@@ -62,4 +61,3 @@
   -webkit-box-orient: vertical;
   /*for displaying only 4 lines of the post and the rest is ...*/
 }
-/*# sourceMappingURL=post.css.map */

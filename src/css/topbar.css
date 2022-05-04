@@ -15,7 +15,8 @@
   z-index: 100;
 }
 
-.top .topLeft, .top .topRight {
+.top .topLeft,
+.top .topRight {
   -webkit-box-flex: 3;
       -ms-flex: 3;
           flex: 3;
@@ -77,4 +78,3 @@
   cursor: pointer;
   margin-left: 15px;
 }
-/*# sourceMappingURL=topbar.css.map */

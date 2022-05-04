@@ -1,50 +1,49 @@
-.post{
-    width: 480px;
-    margin: 0px 25px 40px 25px
+.post {
+  width: 300px;
+  //   margin: 0px 25px 40px 25px;
 }
-.postImg{
-    width: 100%;
-    height: 280px;
-    object-fit: cover;
-    border-radius: 7px;
+.postImg {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 7px;
 }
-.postInfo{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.postInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-.postCat{
-    font-size: 11px;
-    color: #be9656;
-    line-height: 20px;
-    margin-top: 15px;
-    margin-right: 10px;
-    cursor: pointer;
+.postCat {
+  font-size: 11px;
+  color: #be9656;
+  line-height: 20px;
+  margin-top: 15px;
+  margin-right: 10px;
+  cursor: pointer;
 }
-.postTitle{
-    /* new font fam */
-    font-size: 24px;
-    font-weight: 700;
-    margin-top: 15px;
-    cursor: pointer;
-      
+.postTitle {
+  /* new font fam */
+  font-size: 24px;
+  font-weight: 700;
+  margin-top: 15px;
+  cursor: pointer;
 }
-.postDate{
-    /* new font fam */
-    font-style: italic;
-    font-size: 13px;
-    color:#999;
-    margin-top: 15px;
+.postDate {
+  /* new font fam */
+  font-style: italic;
+  font-size: 13px;
+  color: #999;
+  margin-top: 15px;
 }
-.postDescription{
-   /* new font fam */ 
-   font-size: 14px;
-   color:#444;
-   line-height: 24px;
-   margin-top: 15px;
-   overflow: hidden;
-   text-overflow: ellipsis;
-   display: -webkit-box;
-   -webkit-line-clamp: 4;
-   -webkit-box-orient:  vertical;/*for displaying only 4 lines of the post and the rest is ...*/
+.postDescription {
+  /* new font fam */
+  font-size: 14px;
+  color: #444;
+  line-height: 24px;
+  margin-top: 15px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical; /*for displaying only 4 lines of the post and the rest is ...*/
 }
