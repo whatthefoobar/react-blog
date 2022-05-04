@@ -1,5 +1,14 @@
 .post {
   width: 300px;
+  -webkit-transform: scale(0.95);
+          transform: scale(0.95);
+  -webkit-transition: 0.3s ease;
+  transition: 0.3s ease;
+}
+
+.post:hover {
+  -webkit-transform: scale(1);
+          transform: scale(1);
 }
 
 .postImg {

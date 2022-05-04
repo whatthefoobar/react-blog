@@ -1,6 +1,11 @@
 .post {
   width: 300px;
+  transform: scale(0.95);
+  transition: 0.3s ease;
   //   margin: 0px 25px 40px 25px;
+}
+.post:hover {
+  transform: scale(1);
 }
 .postImg {
   width: 100%;
@@ -8,6 +13,7 @@
   object-fit: cover;
   border-radius: 7px;
 }
+
 .postInfo {
   display: flex;
   flex-direction: column;
