@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 export default function Post({ post }) {
   const publicFolder = 'http://localhost:5000/images/';
   return (
-    <div className="post">
-      <Link to={`/post/${post._id}`} className="link">
+    <Link to={`/post/${post._id}`} className="link">
+      <div className="post">
         {post.photo && (
           <img
             className="postImg"
@@ -31,7 +31,7 @@ export default function Post({ post }) {
 
         {/* Read more btn here */}
         {/* <p className="postDesc">{post.desc}</p> */}
-      </Link>
-    </div>
+      </div>
+    </Link>
   );
 }
