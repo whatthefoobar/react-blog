@@ -1,22 +1,56 @@
-import { Link } from "react-router-dom"
-import "../css/login.css"
+import axios from 'axios';
+import { useContext, useRef } from 'react';
+import { Link } from 'react-router-dom';
+import { Context } from '../context/Context';
+import '../css/login.css';
 
 export default function Login() {
-    return (
-        <div className="login">
-            <span className="loginTitle">Login</span>
-            <form className="loginForm">
-                <label >Email</label>
-                <input type="text" className="loginInput" placeholder="Enter your email"/>
-                <label >Password</label>
-                <input type="password" className="loginInput" placeholder="Enter your password"/>
-                <button className="loginButton">
-                    <Link to ="./login" className="link">Login</Link>
-                </button>
-                <button className="loginRegisterButton">
-                    <Link to ="./register" className="link">Register</Link>
-                </button>
-            </form>
-        </div>
-    )
+  const userRef = useRef();
+  const passwordRef = useRef();
+  const { user, dispatch, isFetching } = useContext(Context);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    dispatch({ type: 'LOGIN_START' });
+    try {
+      const res = await axios.post('/auth/login', {
+        username: userRef.current.value,
+        password: passwordRef.current.value,
+      });
+      dispatch({ type: 'LOGIN_SUCCESS', payload: res.data });
+      console.log('Logged in');
+    } catch (err) {
+      dispatch({ type: 'LOGIN_FAILURE' });
+    }
+  };
+  console.log(user); // why null?
+  return (
+    <div className="login">
+      <span className="loginTitle">Login</span>
+      <form className="loginForm" onSubmit={handleSubmit}>
+        <label>Username</label>
+        <input
+          type="text"
+          className="loginInput"
+          placeholder="Enter your username..."
+          ref={userRef}
+        />
+        <label>Password</label>
+        <input
+          type="password"
+          className="loginInput"
+          placeholder="Enter your password..."
+          ref={passwordRef}
+        />
+        <button className="loginButton" type="submit" disabled={isFetching}>
+          Login
+        </button>
+      </form>
+      <button className="loginRegisterButton">
+        <Link className="link" to="/register">
+          Register
+        </Link>
+      </button>
+    </div>
+  );
 }

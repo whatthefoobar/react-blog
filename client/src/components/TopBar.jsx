@@ -1,55 +1,66 @@
-import { Link } from "react-router-dom";
-import "../css/topbar.css";
+import { useContext } from 'react';
+import { Link } from 'react-router-dom';
+import { Context } from '../context/Context';
+import '../css/topbar.css';
 
 export default function TopBar() {
-    const user = true;
-    const linkStyle= {textDecoration: "none", color:"inherit"};
-    return (
-        <div className="top">
-            <div className="topLeft">
-                <i className="topIcon fab fa-linkedin"></i>
-                <i className="topIcon fab fa-github-square"></i>
-                <i className="topIcon fab fa-instagram-square"></i>
-                <i className="topIcon fab fa-pinterest-square"></i>
-            </div>
-            <div className="topCenter">
-                <ul className="topList">
-                    <li className="topListItem">
-                        <Link to="/" style={linkStyle}>Home</Link>
-                    </li>
-                    <li className="topListItem">
-                        <Link to="/about" style={linkStyle}>About</Link>
-                    </li>
-                    <li className="topListItem">
-                        <Link to="/contact" style={linkStyle}>Contact</Link>
-                    </li>
-                    <li className="topListItem">
-                        <Link to="/write" style={linkStyle}>Write</Link>
-                    </li>
-                    <li className="topListItem">
-                        <Link to="/login" style={linkStyle}>{user && "Logout"}</Link>
-                    </li>
-                </ul>
-            </div>
-            <div className="topRight">
-                { user ? (
-                  <img className="topImg" src="https://images.pexels.com/photos/3922074/pexels-photo-3922074.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="" />
-                ) : 
-                <ul className="topList">
-                    <li className="topListItem">
-                        <Link to="/login" style={linkStyle}>Login</Link>
-                    </li>
-                    <li className="topListItem">
-                        <Link to="/register" style={linkStyle}>Register</Link>
-                    </li>
-                    
-                </ul>
-                }
-                
+  const { user, dispatch } = useContext(Context);
 
-                <i className="topSearchIcon fas fa-search"></i>
+  const linkStyle = { textDecoration: 'none', color: 'inherit' };
+  const handleLogout = () => {
+    dispatch({ type: 'LOGOUT' });
+  };
 
-            </div>
-        </div>
-    )
+  return (
+    <div className="top">
+      <div className="topLeft">
+        {/* custom search bar here */}
+        <i className="topSearchIcon fas fa-search"></i>
+      </div>
+      <div className="topCenter">
+        <ul className="topList">
+          <li className="topListItem">
+            <Link className="link" to="/">
+              HOME
+            </Link>
+          </li>
+          <li className="topListItem">
+            <Link className="link" to="/about">
+              ABOUT
+            </Link>
+          </li>
+
+          <li className="topListItem">
+            <Link className="link" to="/write">
+              WRITE
+            </Link>
+          </li>
+          <li className="topListItem" onClick={handleLogout}>
+            {user && 'LOGOUT'}
+          </li>
+        </ul>
+      </div>
+      <div className="topRight">
+        {user ? (
+          <Link to="/settings" className="link">
+            <img className="topImg" src={user.profilePic} alt="" />
+            <span className="capitalize">{user.username}</span>
+          </Link>
+        ) : (
+          <ul className="topList">
+            <li className="topListItem">
+              <Link className="link" to="/login">
+                LOGIN
+              </Link>
+            </li>
+            <li className="topListItem">
+              <Link className="link" to="/register">
+                REGISTER
+              </Link>
+            </li>
+          </ul>
+        )}
+      </div>
+    </div>
+  );
 }

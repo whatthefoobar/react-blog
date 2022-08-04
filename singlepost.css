@@ -1,7 +1,7 @@
 .singlePost {
   -webkit-box-flex: 9;
-  -ms-flex: 9;
-  flex: 9;
+      -ms-flex: 9;
+          flex: 9;
 }
 
 .singlePostWrapper {
@@ -14,7 +14,7 @@
   height: 300px;
   border-radius: 5px;
   -o-object-fit: cover;
-  object-fit: cover;
+     object-fit: cover;
 }
 
 .singlePostTitle {
@@ -22,28 +22,6 @@
   /* newfont fam */
   margin: 10px;
   font-size: 28px;
-}
-.singlePostTitleInput {
-  margin: 10px;
-  font-family: 'Lora', serif;
-  font-size: 28px;
-  text-align: center;
-  border: none;
-  color: gray;
-  border-bottom: 1px solid lightgray;
-}
-.singlePostTitleInput {
-  margin: 10px;
-  font-family: 'Lora', serif;
-  font-size: 24px;
-  text-align: center;
-  border: none;
-  color: gray;
-  border-bottom: 1px solid lightgray;
-}
-
-.singlePostTitleInput:focus {
-  outline: none;
 }
 
 .singlePostEdit {
@@ -71,8 +49,8 @@
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   font-size: 16px;
   color: #b39656;
   /* new font Fam */
@@ -88,28 +66,4 @@
   margin-left: 20px;
   font-size: 30px;
   font-weight: 600;
-}
-
-.singlePostDescInput {
-  border: none;
-  color: #666;
-  font-size: 18px;
-  line-height: 25px;
-  width: 100%;
-  height: 400px;
-}
-
-.singlePostDescInput:focus {
-  outline: none;
-}
-.singlePostButton {
-  width: 100px;
-  border: none;
-  background-color: teal;
-  padding: 5px;
-  color: white;
-  border-radius: 5px;
-  cursor: pointer;
-  align-self: flex-end;
-  margin-top: 20px;
 }

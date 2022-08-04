@@ -1,20 +1,14 @@
-// import { Link } from 'react-router-dom';
-// import Post from "./Post";
-import "../css/posts.css";
-import Post from "./Post";
+import Post from './Post';
+import '../css/posts.css';
 
-const Posts = ({posts}) => {
- 
-  return ( 
+const Posts = ({ posts }) => {
+  return (
     <div className="posts">
-    {posts.map(post => ( 
-      
-        <Post key={post.id} image = {post.previewImage} title = {post.title} description = {post.content} />
-       
+      {posts.map((post) => (
+        <Post key={post._id} post={post} />
       ))}
     </div>
-    
   );
-}
- 
+};
+
 export default Posts;

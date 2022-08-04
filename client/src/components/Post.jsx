@@ -1,19 +1,37 @@
 import '../css/post.css';
+import { Link } from 'react-router-dom';
 
-export default function Post(props) {
+export default function Post({ post }) {
+  const publicFolder = 'http://localhost:5000/images/';
   return (
     <div className="post">
-      <img className="postImg" src={props.image} alt="autumn" />
-      <div className="postInfo">
-        <div className="postCats">
-          <span className="postCat">Art</span>
-          <span className="postCat">Sport</span>
+      <Link to={`/post/${post._id}`} className="link">
+        {post.photo && (
+          <img
+            className="postImg"
+            src={publicFolder + post.photo}
+            alt="blog post"
+          />
+        )}
+        <div className="postInfo">
+          <div className="postCats">
+            {post.categories.map((c) => (
+              <span className="postCat">{c.name}</span>
+            ))}
+          </div>
+
+          <span className="postTitle">{post.title}</span>
+
+          <hr />
+          <span className="postDate">
+            {new Date(post.createdAt).toDateString()}
+          </span>
+          <span className="author capitalize">Writen by {post.username}</span>
         </div>
-        <span className="postTitle">{props.title}</span>
-        <hr />
-        <span className="postDate">1 hour ago</span>
-      </div>
-      <p className="postDescription">{props.description} </p>
+
+        {/* Read more btn here */}
+        {/* <p className="postDesc">{post.desc}</p> */}
+      </Link>
     </div>
   );
 }
