@@ -21,16 +21,15 @@ export default function Post({ post }) {
           </div>
 
           <span className="postTitle">{post.title}</span>
-
-          <hr />
-          <span className="postDate">
-            {new Date(post.createdAt).toDateString()}
-          </span>
-          <span className="author capitalize">Writen by {post.username}</span>
+          <div className="subTitle">
+            <span className="postDate">
+              {new Date(post.createdAt).toDateString()}
+            </span>
+            <span className="author capitalize">Writen by {post.username}</span>
+          </div>
         </div>
 
-        {/* Read more btn here */}
-        {/* <p className="postDesc">{post.desc}</p> */}
+        <p className="postDesc">{post.desc}</p>
       </div>
     </Link>
   );
