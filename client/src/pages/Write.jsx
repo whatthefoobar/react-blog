@@ -72,6 +72,3 @@ export default function Write() {
     </div>
   );
 }
-
-//  src =
-//    'https://images.pexels.com/photos/1122638/pexels-photo-1122638.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260';

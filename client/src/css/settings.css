@@ -1,26 +1,16 @@
 .settings {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
 }
 
 .settingsWrapper {
-  -webkit-box-flex: 10;
-      -ms-flex: 10;
-          flex: 10;
+  flex: 9;
   padding: 20px;
 }
 
 .settingsTitle {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .settingsUpdateTitle {
@@ -30,36 +20,27 @@
 }
 
 .settingsDeleteTitle {
+  color: red;
   font-size: 12px;
   cursor: pointer;
-  color: red;
 }
 
 .settingsForm {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
 }
 
 .settingsPP {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
   margin: 10px 0;
 }
 
-.settingsImg {
+.settingsPP > img {
   width: 70px;
   height: 70px;
-  -o-object-fit: cover;
-     object-fit: cover;
+  border-radius: 20px;
+  object-fit: cover;
 }
 
 .settingsPPIcon {
@@ -68,15 +49,9 @@
   border-radius: 50%;
   background-color: lightcoral;
   color: white;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  align-items: center;
+  justify-content: center;
   margin-left: 10px;
   cursor: pointer;
 }
@@ -92,14 +67,11 @@
   height: 30px;
   border: none;
   border-bottom: 1px solid lightgray;
-  outline: none;
 }
 
 .settingsSubmit {
   width: 150px;
-  -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
+  align-self: center;
   border: none;
   border-radius: 10px;
   color: white;

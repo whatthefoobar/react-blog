@@ -5,8 +5,9 @@ import '../css/topbar.css';
 
 export default function TopBar() {
   const { user, dispatch } = useContext(Context);
+  const publicFolder = 'http://localhost:5000/images/';
 
-  const linkStyle = { textDecoration: 'none', color: 'inherit' };
+  // const linkStyle = { textDecoration: 'none', color: 'inherit' };
   const handleLogout = () => {
     dispatch({ type: 'LOGOUT' });
   };
@@ -43,7 +44,15 @@ export default function TopBar() {
       <div className="topRight">
         {user ? (
           <Link to="/settings" className="link">
-            <img className="topImg" src={user.profilePic} alt="" />
+            <img
+              className="topImg"
+              src={
+                user.profilePic
+                  ? publicFolder + user.profilePic
+                  : 'https://images.pexels.com/photos/4132327/pexels-photo-4132327.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
+              }
+              alt="user profile"
+            />
             <span className="capitalize">{user.username}</span>
           </Link>
         ) : (
