@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 export default function Post({ post }) {
   const publicFolder = 'http://localhost:5000/images/';
+
   return (
     <Link to={`/post/${post._id}`} className="link">
       <div className="post">

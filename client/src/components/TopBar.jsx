@@ -7,7 +7,6 @@ export default function TopBar() {
   const { user, dispatch } = useContext(Context);
   const publicFolder = 'http://localhost:5000/images/';
 
-  // const linkStyle = { textDecoration: 'none', color: 'inherit' };
   const handleLogout = () => {
     dispatch({ type: 'LOGOUT' });
   };
