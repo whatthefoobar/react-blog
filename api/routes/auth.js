@@ -1,12 +1,14 @@
-const router = require('express').Router();
-const User = require('../models/User');
-const bcrypt = require('bcrypt');
+// const router = require('express').Router();
+import express from 'express';
+const router = express.Router();
+import User from '../models/User.js';
+import { genSalt, hash, compare } from 'bcrypt';
 
 //REGISTER
 router.post('/register', async (req, res) => {
   try {
-    const salt = await bcrypt.genSalt(10);
-    const hashedPass = await bcrypt.hash(req.body.password, salt);
+    const salt = await genSalt(10);
+    const hashedPass = await hash(req.body.password, salt);
     const newUser = new User({
       username: req.body.username,
       email: req.body.email,
@@ -26,7 +28,7 @@ router.post('/login', async (req, res) => {
     const user = await User.findOne({ username: req.body.username });
     !user && res.status(400).json('Wrong credentials!');
 
-    const validated = await bcrypt.compare(req.body.password, user.password);
+    const validated = await compare(req.body.password, user.password);
     !validated && res.status(400).json('Wrong credentials!');
 
     const { password, ...others } = user._doc; // give a resp everything but the password
@@ -36,4 +38,4 @@ router.post('/login', async (req, res) => {
   }
 });
 
-module.exports = router;
+export default router;

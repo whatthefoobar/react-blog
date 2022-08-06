@@ -1,14 +1,17 @@
-const router = require('express').Router();
-const User = require('../models/User');
-const Post = require('../models/Post');
-const bcrypt = require('bcrypt');
+// const router = require('express').Router();
+
+import express from 'express';
+const router = express.Router();
+import User from '../models/User.js';
+import Post from '../models/Post.js';
+import { genSalt, hash } from 'bcrypt';
 
 //UPDATE
 router.put('/:id', async (req, res) => {
   if (req.body.userId === req.params.id) {
     if (req.body.password) {
-      const salt = await bcrypt.genSalt(10);
-      req.body.password = await bcrypt.hash(req.body.password, salt);
+      const salt = await genSalt(10);
+      req.body.password = await hash(req.body.password, salt);
     }
     try {
       const updatedUser = await User.findByIdAndUpdate(
@@ -58,4 +61,4 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-module.exports = router;
+export default router;

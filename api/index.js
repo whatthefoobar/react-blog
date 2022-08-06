@@ -1,17 +1,18 @@
-const express = require('express');
+import express from 'express';
 const app = express();
-const dotenv = require('dotenv');
-const mongoose = require('mongoose');
-const authRoute = require('./routes/auth');
-const userRoute = require('./routes/users');
-const postRoute = require('./routes/posts');
-const categoryRoute = require('./routes/categories');
-const multer = require('multer');
-const path = require('path');
+import { config } from 'dotenv';
+import mongoose from 'mongoose';
+import authRoute from './routes/auth.js';
+import userRoute from './routes/users.js';
+import postRoute from './routes/posts.js';
+import categoryRoute from './routes/categories.js';
+import multer, { diskStorage } from 'multer';
+import path from 'path';
 
-dotenv.config();
+config();
 
 app.use(express.json());
+const __dirname = path.resolve();
 app.use('/images', express.static(path.join(__dirname, '/images')));
 
 mongoose
@@ -23,7 +24,7 @@ mongoose
     console.log(err.message);
   });
 
-const storage = multer.diskStorage({
+const storage = diskStorage({
   destination: (req, file, cb) => {
     cb(null, 'images');
   },
