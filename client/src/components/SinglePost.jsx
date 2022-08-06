@@ -1,13 +1,13 @@
 import '../css/singlepost.css';
 import axios from 'axios';
 import { useContext, useEffect, useState } from 'react';
-import { useLocation } from 'react-router';
+import { useParams } from 'react-router';
 import { Link } from 'react-router-dom';
 import { Context } from '../context/Context';
 
 export default function SinglePost() {
-  const location = useLocation(); // useParams to get the post id
-  const path = location.pathname.split('/')[2];
+  const { postId } = useParams();
+
   const [post, setPost] = useState({});
   const PF = 'http://localhost:5000/images/';
   const { user } = useContext(Context);
@@ -17,13 +17,13 @@ export default function SinglePost() {
 
   useEffect(() => {
     const getPost = async () => {
-      const res = await axios.get('/posts/' + path);
+      const res = await axios.get('/posts/' + postId);
       setPost(res.data);
       setTitle(res.data.title);
       setDesc(res.data.desc);
     };
     getPost();
-  }, [path]);
+  }, [postId]);
 
   const handleDelete = async () => {
     try {
