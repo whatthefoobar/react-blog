@@ -3,7 +3,7 @@ import Posts from '../components/Posts';
 import axios from 'axios';
 import { useLocation } from 'react-router-dom';
 import '../css/home.css';
-import HeaderImage from '../components/HeaderImage';
+import Header from '../components/Header';
 
 export default function Home() {
   const [posts, setPosts] = useState([]);
@@ -20,7 +20,7 @@ export default function Home() {
 
   return (
     <>
-      <HeaderImage />
+      <Header />
       <div className="home">{posts && <Posts posts={posts} />}</div>
     </>
   );
