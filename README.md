@@ -1,5 +1,6 @@
 # react-blog-practice
 
-practice react by building a blog
+Quick Preview (UI is subject to changes):
 
-used JSON-SERVER to serve up my blogs for posts.json I have in folder data. just run : npx json-server --watch client/data/posts.json --port 8000 to fetch all the blog posts
+![prev1](https://user-images.githubusercontent.com/69626975/183281448-e3b34cf8-5769-4e3c-8d50-85143bca2e98.PNG)
+![prev2](https://user-images.githubusercontent.com/69626975/183281452-ae290e44-9564-4085-8255-2189457dfcf0.PNG)
