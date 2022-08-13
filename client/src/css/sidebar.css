@@ -2,7 +2,7 @@
   -webkit-box-flex: 2;
   -ms-flex: 2;
   flex: 2;
-  /* border: 1px solid red; */
+
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -15,7 +15,6 @@
   align-items: center;
   margin: 20px;
   padding-bottom: 30px;
-  /* background-color: #fdfdfd; */
   background-color: #fae8ea;
 }
 

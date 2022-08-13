@@ -14,8 +14,12 @@ export default function TopBar() {
   return (
     <div className="top">
       <div className="topLeft">
+        <Link className="link" to="/">
+          <h2>Logo</h2>
+        </Link>
+
         {/* custom search bar here */}
-        <i className="topSearchIcon fas fa-search"></i>
+        {/* <i className="topSearchIcon fas fa-search"></i> */}
       </div>
       <div className="topCenter">
         <ul className="topList">

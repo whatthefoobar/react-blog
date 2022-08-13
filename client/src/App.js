@@ -10,12 +10,14 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import About from './pages/About';
 import { useContext } from 'react';
 import { Context } from './context/Context';
+import Navbar from './components/Navbar';
 
 function App() {
   const { user } = useContext(Context);
   return (
     <Router>
-      <TopBar />
+      {/* <TopBar /> */}
+      <Navbar />
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route path="/about" element={<About />} />

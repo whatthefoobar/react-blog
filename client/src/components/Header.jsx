@@ -1,11 +1,11 @@
 import React from 'react';
 import Sidebar from './Sidebar';
-import '../css/headerimage.css';
+import '../css/header.css';
 
 export default function Header() {
   return (
     <div className="header">
-      <div className="headerImage">
+      <div className="headerImageContainer">
         <div className="headerTitles">
           <span className="headerTitleSmall">Final warning:</span>
           <span className="headerTitleLarge">No planet B</span>
