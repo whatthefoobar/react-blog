@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import Posts from '../components/Posts';
 import axios from 'axios';
 import { useLocation } from 'react-router-dom';
-import '../css/home.css';
+// import '../css/layout/home.scss';
 import Header from '../components/Header';
 
 export default function Home() {

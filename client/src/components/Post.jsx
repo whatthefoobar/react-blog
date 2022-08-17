@@ -1,4 +1,4 @@
-import '../css/post.css';
+// import '../css/components/post.css';
 import { Link } from 'react-router-dom';
 
 export default function Post({ post }) {

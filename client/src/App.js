@@ -1,5 +1,5 @@
 import Home from '../src/pages/Home';
-import TopBar from './components/TopBar';
+// import TopBar from './components/TopBar';
 import Single from '../src/pages/Single';
 import Write from '../src/pages/Write';
 import Settings from '../src/pages/Settings';
@@ -17,6 +17,7 @@ function App() {
   return (
     <Router>
       {/* <TopBar /> */}
+      {/* testing out a navbar ui */}
       <Navbar />
       <Routes>
         <Route exact path="/" element={<Home />} />

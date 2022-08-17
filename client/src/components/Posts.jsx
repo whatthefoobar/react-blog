@@ -1,5 +1,5 @@
 import Post from './Post';
-import '../css/posts.css';
+// import '../css/components/posts.css';
 
 const Posts = ({ posts }) => {
   return (

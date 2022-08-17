@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { Context } from '../context/Context';
-import '../css/navbar.css';
+// import '../css/components/navbar.css';
 
 export default function Navbar() {
   const navRef = useRef();

@@ -1,4 +1,4 @@
-import '../css/write.css';
+// import '../css/layout/write.css';
 import { useContext, useState } from 'react';
 import axios from 'axios';
 import { Context } from '../context/Context';

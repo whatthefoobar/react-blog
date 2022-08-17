@@ -1,4 +1,4 @@
-import '../css/singlepost.css';
+// import '../css/components/singlepost.css';
 import axios from 'axios';
 import { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router';

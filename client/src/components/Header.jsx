@@ -1,6 +1,6 @@
 import React from 'react';
 import Sidebar from './Sidebar';
-import '../css/header.css';
+// import '../css/components/header.scss';
 
 export default function Header() {
   return (
