@@ -1,17 +1,13 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { useRef } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Context } from '../context/Context';
-// import '../css/components/navbar.css';
 import { BiMenuAltRight } from 'react-icons/bi';
 import { AiOutlineClose } from 'react-icons/ai';
 
 export default function Navbar() {
-  const navRef = useRef();
   const { user, dispatch } = useContext(Context);
   const publicFolder = 'http://localhost:5000/images/';
-  //
-  const navigate = useNavigate();
+
   const [menuOpen, setMenuOpen] = useState(false);
   const [size, setSize] = useState({
     width: undefined,
@@ -42,10 +38,6 @@ export default function Navbar() {
 
   const handleLogout = () => {
     dispatch({ type: 'LOGOUT' });
-  };
-
-  const showNavbar = () => {
-    navRef.current.classList.toggle('responsive_nav');
   };
 
   return (
@@ -107,6 +99,7 @@ export default function Navbar() {
             )}
           </ul>
         </nav>
+        {/* Nav btn on small screen */}
         <div className="nav-bar__content__toggle">
           {!menuOpen ? (
             <BiMenuAltRight onClick={menuToggleHandler} />
