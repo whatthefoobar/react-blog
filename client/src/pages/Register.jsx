@@ -52,13 +52,16 @@ export default function Register() {
         <button className="registerButton" type="submit">
           Register
         </button>
+        <div className="loginOption">
+          <p>Already have an account?</p>
+          <button className="registerLoginButton">
+            <Link className="link" to="/login">
+              Login
+            </Link>
+          </button>
+        </div>
       </form>
-      {/* <p style={{ marginTop: '10px' }}>Are you already a user?</p> */}
-      <button className="registerLoginButton">
-        <Link className="link" to="/login">
-          Login here
-        </Link>
-      </button>
+
       {error && (
         <span style={{ color: 'red', marginTop: '10px' }}>
           Something went wrong!

@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import Posts from '../components/Posts';
 import axios from 'axios';
 import { useLocation } from 'react-router-dom';
-// import '../css/layout/home.scss';
 import Header from '../components/Header';
 
 export default function Home() {
@@ -21,6 +20,7 @@ export default function Home() {
   return (
     <>
       <Header />
+
       <div className="home">{posts && <Posts posts={posts} />}</div>
     </>
   );

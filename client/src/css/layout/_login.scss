@@ -64,19 +64,23 @@
   padding: 10px;
 }
 
+.loginButton:disabled {
+  cursor: not-allowed;
+  background-color: rgb(252, 173, 173);
+}
+.registerOption {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
 .loginRegisterButton {
-  position: absolute;
-  top: 60px;
-  right: 20px;
+  margin-top: 10px;
+  width: 100%;
   background-color: teal;
   cursor: pointer;
   border: none;
   padding: 10px;
   color: white;
   border-radius: 10px;
-}
-
-.loginButton:disabled {
-  cursor: not-allowed;
-  background-color: rgb(252, 173, 173);
 }

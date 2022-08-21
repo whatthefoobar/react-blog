@@ -45,12 +45,15 @@ export default function Login() {
         <button className="loginButton" type="submit" disabled={isFetching}>
           Login
         </button>
+        <div className="registerOption">
+          <p>Don't have an account?</p>
+          <button className="loginRegisterButton">
+            <Link className="link" to="/register">
+              Register
+            </Link>
+          </button>
+        </div>
       </form>
-      <button className="loginRegisterButton">
-        <Link className="link" to="/register">
-          Register
-        </Link>
-      </button>
     </div>
   );
 }
