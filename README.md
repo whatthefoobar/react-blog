@@ -1,4 +1,6 @@
-# react-blog-practice
+# react-blog
+Mission: fullstack MERN blog with editable blog post, infinite scroll lazy loading and carousel component of blog posts in the Home section.
+Bonus: change from JavaScript to TypeScript
 
 Quick Preview (UI is subject to changes):
 
