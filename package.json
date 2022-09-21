@@ -1,0 +1,20 @@
+{
+  "name": "y",
+  "version": "1.0.0",
+  "description": "Mission: fullstack MERN blog with editable blog post, infinite scroll lazy loading and carousel component of blog posts in the Home section.\r Bonus: change from JavaScript to TypeScript",
+  "main": "index.js",
+  "scripts": {
+    "build": "cd api && npm install  && cd ../client && npm install && npm run build",
+    "start": "node api/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/whatthefoobar/react-blog-practice.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/whatthefoobar/react-blog-practice/issues"
+  },
+  "homepage": "https://github.com/whatthefoobar/react-blog-practice#readme"
+}

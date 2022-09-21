@@ -25,12 +25,13 @@ router.post('/register', async (req, res) => {
 //LOGIN
 router.post('/login', async (req, res) => {
   console.log(req.body);
+  const { username } = req.body;
   try {
-    const user = await User.findOne({ username: req.body.username });
-    !user && res.status(400).json('Wrong credentials!');
+    const user = await User.findOne({ username });
+    !user && res.status(401).json('Wrong username or password!');
 
     const validated = await compare(req.body.password, user.password);
-    !validated && res.status(400).json('Wrong credentials!');
+    !validated && res.status(401).json('Wrong username or password!');
 
     const { password, ...others } = user._doc; // give a resp everything but the password
     res.status(200).json(others);

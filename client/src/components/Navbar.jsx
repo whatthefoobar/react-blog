@@ -51,7 +51,7 @@ export default function Navbar() {
             menuOpen && size.width < 768 ? 'isMenu' : ''
           }`}
         >
-          <ul className="center-section">
+          <ul>
             <li>
               <Link to="/" onClick={menuToggleHandler}>
                 Home
@@ -74,9 +74,6 @@ export default function Navbar() {
                 </p>
               )}
             </li>
-          </ul>
-
-          <ul className="right-section">
             {user ? (
               <Link to="/settings" className="link">
                 <img

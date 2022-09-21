@@ -1,12 +1,13 @@
 @use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
 
 .nav-bar {
   background: $light;
-  position: fixed !important;
+  position: fixed;
   z-index: 99;
   width: 100%;
   height: $headerHeight;
-  padding: 0 1.5rem !important;
+  padding: 0 1.5rem;
   @include breakpoint(md) {
     padding: 0 3rem;
   }
@@ -20,7 +21,7 @@
     height: 100%;
     display: flex;
     align-items: center;
-    justify-content: space-between !important;
+    justify-content: space-between;
     position: relative;
     z-index: 100;
 
@@ -120,7 +121,7 @@
       }
 
       &.isMenu {
-        transform: translate(100%);
+        transform: translateX(100%);
       }
     }
 
