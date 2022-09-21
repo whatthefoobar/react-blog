@@ -1,5 +1,5 @@
 import React from 'react';
-import Sidebar from './Sidebar';
+// import Sidebar from './Sidebar';
 
 export default function Header() {
   return (
@@ -12,7 +12,7 @@ export default function Header() {
           />
         </div>
       </div>
-      <Sidebar />
+      {/* <Sidebar /> */}
     </div>
   );
 }
