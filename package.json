@@ -1,7 +1,6 @@
 {
   "name": "react-blog",
   "version": "1.0.0",
-  "type": "module",
   "description": "Mission: fullstack MERN blog with editable blog post, infinite scroll lazy loading and carousel component of blog posts in the Home section.\r Bonus: change from JavaScript to TypeScript",
   "main": "index.js",
   "scripts": {

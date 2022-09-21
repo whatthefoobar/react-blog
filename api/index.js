@@ -1,6 +1,6 @@
 import express from 'express';
+import dotenv from 'dotenv';
 const app = express();
-import { config } from 'dotenv';
 import mongoose from 'mongoose';
 import authRoute from './routes/auth.js';
 import userRoute from './routes/users.js';
@@ -9,20 +9,23 @@ import categoryRoute from './routes/categories.js';
 import multer, { diskStorage } from 'multer';
 import path from 'path';
 
-config();
+dotenv.config();
 
 app.use(express.json());
 const __dirname = path.resolve();
 app.use('/images', express.static(path.join(__dirname, '/images')));
 
-mongoose
-  .connect(process.env.MONGODB_URL)
-  .then(() => {
-    console.log('Connected to MongoDB');
-  })
-  .catch((err) => {
-    console.log(err.message);
-  });
+const connectDB = async () => {
+  try {
+    const conn = await mongoose.connect(process.env.MONGODB_URL);
+
+    console.log(`Connected to MongoDB`);
+  } catch (error) {
+    console.error(`Error: ${error.message}`);
+    process.exit(1);
+  }
+};
+connectDB();
 
 const storage = diskStorage({
   destination: (req, file, cb) => {
@@ -34,6 +37,7 @@ const storage = diskStorage({
 });
 
 const upload = multer({ storage: storage });
+
 app.post('/api/upload', upload.single('file'), (req, res) => {
   res.status(200).json('File has been uploaded');
 });
