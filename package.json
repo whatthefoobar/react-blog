@@ -1,11 +1,12 @@
 {
-  "name": "y",
+  "name": "react-blog",
   "version": "1.0.0",
+  "type": "module",
   "description": "Mission: fullstack MERN blog with editable blog post, infinite scroll lazy loading and carousel component of blog posts in the Home section.\r Bonus: change from JavaScript to TypeScript",
   "main": "index.js",
   "scripts": {
-    "build": "cd api && npm install  && cd ../client && npm install && npm run build",
-    "start": "node api/index.js"
+    "start": "node api/index",
+    "build": "cd api && npm install  && cd ../client && npm install && npm run build"
   },
   "repository": {
     "type": "git",
