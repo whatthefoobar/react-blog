@@ -1,23 +1,23 @@
-import express from 'express';
-import dotenv from 'dotenv';
+import express from "express";
+import dotenv from "dotenv";
 const app = express();
-import mongoose from 'mongoose';
-import authRoute from './routes/auth.js';
-import userRoute from './routes/users.js';
-import postRoute from './routes/posts.js';
-import categoryRoute from './routes/categories.js';
-import multer, { diskStorage } from 'multer';
-import path from 'path';
+import mongoose from "mongoose";
+import authRoute from "./routes/auth.js";
+import userRoute from "./routes/users.js";
+import postRoute from "./routes/posts.js";
+import categoryRoute from "./routes/categories.js";
+import multer, { diskStorage } from "multer";
+import path from "path";
 
 dotenv.config();
 
 app.use(express.json());
 const __dirname = path.resolve();
-app.use('/images', express.static(path.join(__dirname, '/images')));
+app.use("/images", express.static(path.join(__dirname, "/images")));
 
 const connectDB = async () => {
   try {
-    const conn = await mongoose.connect(process.env.MONGODB_URL);
+    await mongoose.connect(process.env.MONGODB_URL);
 
     console.log(`Connected to MongoDB`);
   } catch (error) {
@@ -29,7 +29,7 @@ connectDB();
 
 const storage = diskStorage({
   destination: (req, file, cb) => {
-    cb(null, 'images');
+    cb(null, "images");
   },
   filename: (req, file, cb) => {
     cb(null, req.body.name);
@@ -38,27 +38,27 @@ const storage = diskStorage({
 
 const upload = multer({ storage: storage });
 
-app.post('/api/upload', upload.single('file'), (req, res) => {
-  res.status(200).json('File has been uploaded');
+app.post("/api/upload", upload.single("file"), (req, res) => {
+  res.status(200).json("File has been uploaded");
 });
 
-app.use('/api/auth', authRoute);
-app.use('/api/users', userRoute);
-app.use('/api/posts', postRoute);
-app.use('/api/categories', categoryRoute);
+app.use("/api/auth", authRoute);
+app.use("/api/users", userRoute);
+app.use("/api/posts", postRoute);
+app.use("/api/categories", categoryRoute);
 
 //for deployment w heroku:
 // const __dirname = path.resolve(); // returns current directory
-app.use(express.static(path.join(__dirname, '/client/build'))); // serve this as static files
-if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, '/frontend/build')));
+app.use(express.static(path.join(__dirname, "/client/build"))); // serve this as static files
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, "/frontend/build")));
 
-  app.get('*', (req, res) =>
-    res.sendFile(path.join(__dirname, '/frontend/build/index.html'))
+  app.get("*", (req, res) =>
+    res.sendFile(path.join(__dirname, "/frontend/build/index.html"))
   );
 } else {
-  app.get('/', (req, res) => {
-    res.send('API is running....');
+  app.get("/", (req, res) => {
+    res.send("API is running....");
   });
 }
 

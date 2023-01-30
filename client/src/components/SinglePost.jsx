@@ -1,23 +1,25 @@
 // import '../css/components/singlepost.css';
-import axios from 'axios';
-import { useContext, useEffect, useState } from 'react';
-import { useParams } from 'react-router';
-import { Link } from 'react-router-dom';
-import { Context } from '../context/Context';
+import axios from "axios";
+import { useContext, useEffect, useState } from "react";
+import { useParams } from "react-router";
+import { Link } from "react-router-dom";
+import { Context } from "../context/Context";
 
 export default function SinglePost() {
   const { postId } = useParams();
 
   const [post, setPost] = useState({});
-  const PF = 'http://localhost:5000/images/';
+  const PF = "http://localhost:5000/images/";
   const { user } = useContext(Context);
-  const [title, setTitle] = useState('');
-  const [desc, setDesc] = useState('');
+  const [title, setTitle] = useState("");
+  const [desc, setDesc] = useState("");
   const [updateMode, setUpdateMode] = useState(false);
 
   useEffect(() => {
     const getPost = async () => {
-      const res = await axios.get('/posts/' + postId);
+      const res = await axios.get("/posts/" + postId);
+      console.log(res);
+      // we have a res.data.categories array
       setPost(res.data);
       setTitle(res.data.title);
       setDesc(res.data.desc);
@@ -30,7 +32,7 @@ export default function SinglePost() {
       await axios.delete(`/posts/${post._id}`, {
         data: { username: user.username },
       });
-      window.location.replace('/');
+      window.location.replace("/");
     } catch (err) {
       console.log(err);
     }

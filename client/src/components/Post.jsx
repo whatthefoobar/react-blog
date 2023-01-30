@@ -1,8 +1,8 @@
 // import '../css/components/post.css';
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 export default function Post({ post }) {
-  const publicFolder = 'http://localhost:5000/images/';
+  const publicFolder = "http://localhost:5000/images/";
 
   return (
     <Link to={`/post/${post._id}`} className="link">
@@ -17,7 +17,9 @@ export default function Post({ post }) {
         <div className="postInfo">
           <div className="postCats">
             {post.categories.map((c) => (
-              <span className="postCat">{c.name}</span>
+              <span className="postCat" key={c._id}>
+                {c.name}
+              </span>
             ))}
           </div>
 
