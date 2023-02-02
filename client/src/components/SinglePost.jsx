@@ -14,6 +14,7 @@ export default function SinglePost() {
   const [title, setTitle] = useState("");
   const [desc, setDesc] = useState("");
   const [updateMode, setUpdateMode] = useState(false);
+  const [categories, setCategories] = useState([]);
 
   useEffect(() => {
     const getPost = async () => {
@@ -23,6 +24,7 @@ export default function SinglePost() {
       setPost(res.data);
       setTitle(res.data.title);
       setDesc(res.data.desc);
+      setCategories(res.data.categories);
     };
     getPost();
   }, [postId]);
@@ -101,6 +103,30 @@ export default function SinglePost() {
           />
         ) : (
           <p className="singlePostDesc">{desc}</p>
+        )}
+        {updateMode ? (
+          // ne a checkbox component
+          <form className="singlePostCategories">
+            <label htmlFor="ategory">Choose a category:</label>
+            <select name="category" id="cars">
+              <option value="music">music</option>
+              <option value="tech">tech</option>
+              <option value="diy">diy</option>
+              <option value="health">health</option>
+              <option value="fashion">fashion</option>
+              <option value="economy">economy</option>
+              <option value="factivism">activism</option>
+              <button type="submit">Submit</button>
+            </select>
+          </form>
+        ) : (
+          <div className="singlePostCategories">
+            {categories.map((category) => (
+              <>
+                <span key={category._id}>{category}</span>{" "}
+              </>
+            ))}
+          </div>
         )}
         {updateMode && (
           <button className="singlePostButton" onClick={handleUpdate}>
