@@ -1,4 +1,7 @@
 Note to self: Heroku free tier is dead, need to deploy app 's backend through RENDER. 
+Updated: deployed succesfully to Render
+To fix: responsiveness in the header section and posts section mainly.
+
 
 # react-blog
 Mission: fullstack MERN blog with editable blog post, infinite scroll lazy loading and carousel component of blog posts in the Home section.
