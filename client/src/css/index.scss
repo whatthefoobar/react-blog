@@ -18,8 +18,7 @@
 @use "./components/posts";
 @use "./components/sidebar";
 @use "./components/singlepost";
-@use "./components/topbar";
-@use "./components/carousel";
+@use "./components/loading";
 
 /*layouts imports*/
 @use "./layout/about";
