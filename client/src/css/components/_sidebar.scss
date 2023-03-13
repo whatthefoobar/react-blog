@@ -1,4 +1,12 @@
+@use "../abstracts/mixins" as *;
+
 .sidebar {
+  @include for-size(phone-only) {
+    display: none;
+  }
+  // @include for-size(tablet-portrait-up) {
+  //   width: 200px;
+  // }
   -webkit-box-flex: 2;
   -ms-flex: 2;
   flex: 2;
@@ -13,7 +21,7 @@
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  margin: 20px;
+  margin: 0 20px;
   padding-bottom: 30px;
   background-color: #fae8ea;
 }
@@ -40,11 +48,14 @@
   text-transform: uppercase;
   border-top: 1px solid #a7a4a4;
   border-bottom: 1px solid #a7a4a4;
-  font-size: 12;
+  font-size: 1.4rem;
   color: #222;
   font-weight: 600;
   line-height: 20px;
   text-align: center;
+  @include for-size(tablet-portrait-up) {
+    font-size: 1.2rem;
+  }
 }
 
 .sidebarImg {
@@ -58,6 +69,7 @@
 
 .sidebarItem > p {
   padding: 30px;
+  font-size: 1.2rem;
 }
 
 .sidebarList {
@@ -72,6 +84,9 @@
   /*separates in 2 columns*/
   margin-top: 15px;
   cursor: pointer;
+  @include for-size(tablet-portrait-up) {
+    font-size: 1.2rem;
+  }
 }
 
 .sidebarSocial {

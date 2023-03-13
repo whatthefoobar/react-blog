@@ -1,14 +1,14 @@
 // import '../css/components/sidebar.css';
-import axios from 'axios';
-import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function Sidebar() {
   const [cats, setCats] = useState([]);
 
   useEffect(() => {
     const getCats = async () => {
-      const res = await axios.get('/categories');
+      const res = await axios.get("/categories");
       setCats(res.data);
     };
     getCats();
@@ -25,7 +25,7 @@ export default function Sidebar() {
 
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate qui
-          necessitatibus nostrum illum reprehenderit.
+          nostrum .
         </p>
       </div>
       <div className="sidebarItem">

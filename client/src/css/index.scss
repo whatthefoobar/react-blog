@@ -5,27 +5,27 @@
 --layouts imports
 
 **/
-// @use './abstracts/mixins';
+@use "./abstracts/mixins";
 
 /*base imports*/
-@use './base/reset';
-@use './base/typography';
+@use "./base/reset";
+@use "./base/typography";
 
 /*component imports*/
-@use './components/header';
-@use './components/navbar';
-@use './components/post';
-@use './components/posts';
-@use './components/sidebar';
-@use './components/singlepost';
-@use './components/topbar';
-@use './components/carousel';
+@use "./components/header";
+@use "./components/navbar";
+@use "./components/post";
+@use "./components/posts";
+@use "./components/sidebar";
+@use "./components/singlepost";
+@use "./components/topbar";
+@use "./components/carousel";
 
 /*layouts imports*/
-@use './layout/about';
-@use './layout/home';
-@use './layout/login';
-@use './layout/register';
-@use './layout/settings';
-@use './layout/single';
-@use './layout/write';
+@use "./layout/about";
+@use "./layout/home";
+@use "./layout/login";
+@use "./layout/register";
+@use "./layout/settings";
+@use "./layout/single";
+@use "./layout/write";
