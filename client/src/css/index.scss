@@ -19,6 +19,7 @@
 @use "./components/sidebar";
 @use "./components/singlepost";
 @use "./components/loading";
+@use "./components/pagination";
 
 /*layouts imports*/
 @use "./layout/about";
