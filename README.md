@@ -11,10 +11,7 @@ Quick Preview (UI is subject to changes):
 
 ![p1](https://user-images.githubusercontent.com/69626975/216265328-98abd82d-0658-49a3-8cb8-d5c6c9bbb9c1.PNG)
 
-![prev2](https://user-images.githubusercontent.com/69626975/183281452-ae290e44-9564-4085-8255-2189457dfcf0.PNG)
-
 ![prev22](https://user-images.githubusercontent.com/69626975/224693423-35764b5f-0e4d-4643-94da-b98e4a2f98a8.png)
-
 
 ![prev3](https://user-images.githubusercontent.com/69626975/185792096-dd60684f-87dd-43b0-80c0-c5268fd60417.PNG)
 
