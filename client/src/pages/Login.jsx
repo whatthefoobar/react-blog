@@ -2,7 +2,7 @@ import axios from 'axios';
 import { useContext, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { Context } from '../context/Context';
-// import '../css/layout/login.scss';
+
 
 export default function Login() {
   const userRef = useRef();
@@ -23,7 +23,7 @@ export default function Login() {
       dispatch({ type: 'LOGIN_FAILURE' });
     }
   };
-  console.log(user); // why null?
+ 
   return (
     <div className="login">
       <span className="loginTitle">Login</span>
