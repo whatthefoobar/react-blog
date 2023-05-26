@@ -1,8 +1,6 @@
 import Post from "./Post";
-// import '../css/components/posts.css';
 
 const Posts = ({ posts }) => {
-  console.log(posts);
   return (
     <div className="posts">
       {posts.map((post) => (
