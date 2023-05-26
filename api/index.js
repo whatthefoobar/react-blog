@@ -47,24 +47,14 @@ app.use("/api/users", userRoute);
 app.use("/api/posts", postRoute);
 app.use("/api/categories", categoryRoute);
 
-//for deployment w heroku:
-// const __dirname = path.resolve(); // returns current directory
-app.use(express.static(path.join(__dirname, "/client/build"))); // serve this as static files
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static(path.join(__dirname, "/frontend/build")));
 
-  app.get("*", (req, res) =>
-    res.sendFile(path.join(__dirname, "/frontend/build/index.html"))
-  );
-} else {
-  app.get("/", (req, res) => {
+app.get("/", (req, res) => {
     res.send("API is running....");
-  });
-}
+});
+
 
 const port = process.env.PORT || 5000;
 app.listen(port, () => {
   console.log(`Backend running at http://localhost:${port}`);
 });
 
-//why won't it start backend?
