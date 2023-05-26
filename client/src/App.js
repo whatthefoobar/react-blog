@@ -16,8 +16,6 @@ function App() {
   const { user } = useContext(Context);
   return (
     <Router>
-      {/* <TopBar /> */}
-      {/* testing out a navbar ui */}
       <Navbar />
       <Routes>
         <Route exact path="/" element={<Home />} />
