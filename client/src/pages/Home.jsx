@@ -4,7 +4,6 @@ import axios from "axios";
 import { useLocation } from "react-router-dom";
 import Header from "../components/Header";
 import Pagination from "../components/Pagination";
-// import Loading from "../components/Loading";
 
 export default function Home() {
   const [posts, setPosts] = useState([]);
