@@ -5,11 +5,13 @@ import { Link } from "react-router-dom";
 
 export default function Sidebar() {
   const [cats, setCats] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const getCats = async () => {
       const res = await axios.get("/categories");
       setCats(res.data);
+      setLoading(false);
     };
     getCats();
   }, []);
@@ -30,13 +32,18 @@ export default function Sidebar() {
       </div>
       <div className="sidebarItem">
         <span className="sidebarTitle">CATEGORIES</span>
-        <ul className="sidebarList">
-          {cats.map((c) => (
-            <Link to={`/?cat=${c.name}`} className="link" key={c._id}>
-              <li className="sidebarListItem">{c.name}</li>
-            </Link>
-          ))}
-        </ul>
+
+        {loading ? (
+          <div>Loading ...</div>
+        ) : (
+          <ul className="sidebarList">
+            {cats.map((c) => (
+              <Link to={`/?cat=${c.name}`} className="link" key={c._id}>
+                <li className="sidebarListItem">{c.name}</li>
+              </Link>
+            ))}
+          </ul>
+        )}
       </div>
       <div className="sidebarItem">
         <span className="sidebarTitle">FOLLOW US</span>
