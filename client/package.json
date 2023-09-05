@@ -1,5 +1,5 @@
 {
-  "name": "react-blog",
+  "name": "client",
   "version": "0.1.0",
   "proxy": "http://localhost:5000/api",
   "private": true,
@@ -9,9 +9,8 @@
     "@testing-library/user-event": "^14.1.1",
     "@types/node-sass": "^4.11.3",
     "axios": "^0.27.2",
-    "bootstrap": "^5.2.0",
     "react": "^18.1.0",
-    "react-bootstrap": "^2.5.0",
+    "react-blog": "file:..",
     "react-dom": "^18.1.0",
     "react-icons": "^4.4.0",
     "react-loading": "^2.0.3",

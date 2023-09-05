@@ -11,11 +11,10 @@ export default function Home() {
   const [loading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
   const postsPerPage = 6;
-
   const lastPostIndex = currentPage * postsPerPage;
   const firstPostIndex = lastPostIndex - postsPerPage;
   const currentPosts = posts.slice(firstPostIndex, lastPostIndex);
-  console.log(currentPosts);
+  // console.log(currentPosts);
 
   useEffect(() => {
     const fetchPosts = async () => {

@@ -1,60 +1,69 @@
+import path from "path";
 import express from "express";
 import dotenv from "dotenv";
-const app = express();
-import mongoose from "mongoose";
+import connectDB from "./config/db.js";
 import authRoute from "./routes/auth.js";
 import userRoute from "./routes/users.js";
 import postRoute from "./routes/posts.js";
 import categoryRoute from "./routes/categories.js";
-import multer, { diskStorage } from "multer";
-import path from "path";
+import uploadRoute from "./routes/upload.js";
 
+const app = express();
 dotenv.config();
 
 app.use(express.json());
-const __dirname = path.resolve();
-app.use("/images", express.static(path.join(__dirname, "/images")));
+app.use(express.urlencoded({ extended: true }));
 
-const connectDB = async () => {
-  try {
-    await mongoose.connect(process.env.MONGODB_URL);
-
-    console.log(`Connected to MongoDB`);
-  } catch (error) {
-    console.error(`Error: ${error.message}`);
-    process.exit(1);
-  }
-};
 connectDB();
 
-const storage = diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, "images");
-  },
-  filename: (req, file, cb) => {
-    cb(null, req.body.name);
-  },
-});
+// app.use("/images", express.static(path.join(__dirname, "/images")));
 
-const upload = multer({ storage: storage });
+// const storage = diskStorage({
+//   destination: (req, file, cb) => {
+//     cb(null, "images");
+//   },
+//   filename: (req, file, cb) => {
+//     cb(null, req.body.name);
+//   },
+// });
 
-app.post("/api/upload", upload.single("file"), (req, res) => {
-  res.status(200).json("File has been uploaded");
-});
+// const upload = multer({ storage: storage });
+
+// app.post("/api/upload", upload.single("file"), (req, res) => {
+//   res.status(200).json("File has been uploaded");
+// });
 
 app.use("/api/auth", authRoute);
 app.use("/api/users", userRoute);
 app.use("/api/posts", postRoute);
 app.use("/api/categories", categoryRoute);
+app.use("/api/upload", uploadRoute);
 
-
-app.get("/", (req, res) => {
+// for deplayment
+if (process.env.NODE_ENV === "production") {
+  const __dirname = path.resolve();
+  app.use("/images", express.static("/var/data/images"));
+  app.use(express.static(path.join(__dirname, "/client/build")));
+  // if in production the frontend build is served from the published backend
+  app.get("*", (req, res) =>
+    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"))
+  );
+} else {
+  const __dirname = path.resolve();
+  app.use("/images", express.static(path.join(__dirname, "/images")));
+  app.get("/", (req, res) => {
     res.send("API is running....");
-});
+  });
+}
 
+//
+// app.get("/", (req, res) => {
+//     res.send("API is running....");
+// });
 
 const port = process.env.PORT || 5000;
-app.listen(port, () => {
-  console.log(`Backend running at http://localhost:${port}`);
-});
-
+app.listen(port, () =>
+  console.log(
+    `Server running in ${process.env.NODE_ENV} mode on port http://localhost:${port}`
+  )
+);

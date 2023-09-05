@@ -7,12 +7,13 @@ export default function Sidebar() {
   const [cats, setCats] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  const getCats = async () => {
+    const res = await axios.get("/categories");
+    setCats(res.data);
+    setLoading(false);
+  };
+
   useEffect(() => {
-    const getCats = async () => {
-      const res = await axios.get("/categories");
-      setCats(res.data);
-      setLoading(false);
-    };
     getCats();
   }, []);
   return (
@@ -37,15 +38,16 @@ export default function Sidebar() {
           <div>Loading ...</div>
         ) : (
           <ul className="sidebarList">
-            {cats.map((c) => (
-              <Link
-                to={`/?cat=${c.name}`}
-                className="link sidebar__link"
-                key={c._id}
-              >
-                <li className="sidebarListItem">{c.name}</li>
-              </Link>
-            ))}
+            {cats.length > 0 &&
+              cats.map((c) => (
+                <Link
+                  to={`/?cat=${c.name}`}
+                  className="link sidebar__link"
+                  key={c._id}
+                >
+                  <li className="sidebarListItem">{c.name}</li>
+                </Link>
+              ))}
           </ul>
         )}
       </div>
