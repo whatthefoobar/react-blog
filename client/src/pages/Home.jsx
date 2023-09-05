@@ -30,6 +30,7 @@ export default function Home() {
   return (
     <>
       <Header />
+      <h3 className="home__title">All blog posts</h3>
       {loading ? (
         <div className="loading">Loading posts...</div>
       ) : (
