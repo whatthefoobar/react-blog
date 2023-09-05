@@ -1,4 +1,3 @@
-// import '../css/components/sidebar.css';
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
@@ -8,9 +7,14 @@ export default function Sidebar() {
   const [loading, setLoading] = useState(true);
 
   const getCats = async () => {
-    const res = await axios.get("/categories");
-    setCats(res.data);
-    setLoading(false);
+    try {
+      const res = await axios.get("/categories");
+      setCats(res.data);
+      setLoading(false);
+    } catch (error) {
+      console.error("Error fetching categories:", error);
+      setLoading(false); // Set loading to false even on error to avoid infinite loading state
+    }
   };
 
   useEffect(() => {
@@ -38,7 +42,8 @@ export default function Sidebar() {
           <div>Loading ...</div>
         ) : (
           <ul className="sidebarList">
-            {cats.length > 0 &&
+            {Array.isArray(cats) &&
+              cats.length > 0 &&
               cats.map((c) => (
                 <Link
                   to={`/?cat=${c.name}`}
@@ -63,9 +68,3 @@ export default function Sidebar() {
     </div>
   );
 }
-
-//   <img
-//     className="sidebarImg"
-//     src="https://images.pexels.com/photos/3922074/pexels-photo-3922074.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-//     alt="blogger"
-//   />;

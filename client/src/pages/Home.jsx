@@ -9,22 +9,27 @@ export default function Home() {
   const [posts, setPosts] = useState([]);
   const { search } = useLocation();
   const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchPosts = async () => {
+      try {
+        const res = await axios.get("/posts" + search);
+        setPosts(res.data);
+        setLoading(false);
+      } catch (error) {
+        console.error("Error fetching posts:", error);
+        setLoading(false); // Set loading to false even on error to avoid infinite loading state
+      }
+    };
+    fetchPosts();
+  }, [search]);
+
   const [currentPage, setCurrentPage] = useState(1);
   const postsPerPage = 6;
   const lastPostIndex = currentPage * postsPerPage;
   const firstPostIndex = lastPostIndex - postsPerPage;
   const currentPosts = posts.slice(firstPostIndex, lastPostIndex);
-  // console.log(currentPosts);
-
-  useEffect(() => {
-    const fetchPosts = async () => {
-      const res = await axios.get("/posts" + search);
-
-      setPosts(res.data);
-      setLoading(false);
-    };
-    fetchPosts();
-  }, [search]);
+  console.log(currentPosts);
 
   return (
     <>
@@ -35,7 +40,9 @@ export default function Home() {
       ) : (
         <>
           <div className="home">
-            {currentPosts && <Posts posts={currentPosts} />}
+            {Array.isArray(currentPosts) && currentPosts.length > 0 && (
+              <Posts posts={currentPosts} />
+            )}
           </div>
           <Pagination
             totalPosts={posts.length}
