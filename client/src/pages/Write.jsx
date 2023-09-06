@@ -1,11 +1,10 @@
-// import '../css/layout/write.css';
-import { useContext, useState } from 'react';
-import axios from 'axios';
-import { Context } from '../context/Context';
+import { useContext, useState } from "react";
+import axios from "axios";
+import { Context } from "../context/Context";
 
 export default function Write() {
-  const [title, setTitle] = useState('');
-  const [desc, setDesc] = useState('');
+  const [title, setTitle] = useState("");
+  const [desc, setDesc] = useState("");
   const [file, setFile] = useState(null);
   const { user } = useContext(Context);
 
@@ -16,37 +15,46 @@ export default function Write() {
       title,
       desc,
     };
+
     if (file) {
-      // if there is an img uploaded
       const data = new FormData();
-      const filename = Date.now() + file.name;
-      data.append('name', filename);
-      data.append('file', file);
-      newPost.photo = filename;
+      data.append("image", file);
+
       try {
-        await axios.post('/upload', data);
-      } catch (err) {}
+        // Upload the image to the server
+        const uploadResponse = await axios.post("/upload", data);
+
+        if (uploadResponse.status === 200) {
+          newPost.photo = uploadResponse.data.image; // Set the photo field in your post object
+        }
+      } catch (err) {
+        console.error("Error uploading image:", err);
+      }
     }
+
     try {
-      const res = await axios.post('/posts', newPost);
-      window.location.replace('/post/' + res.data._id);
-    } catch (err) {}
+      // Create a new post with the updated post object
+      const postResponse = await axios.post("/posts", newPost);
+      window.location.replace("/post/" + postResponse.data._id);
+    } catch (err) {
+      console.error("Error creating post:", err);
+    }
   };
 
   return (
     <div className="write">
       {file && (
-        <img className="writeImg" src={URL.createObjectURL(file)} alt="" />
+        <img className="writeImg" src={URL.createObjectURL(file)} alt="blog" />
       )}
       <form className="writeForm" onSubmit={handleSubmit}>
         <div className="writeFormGroup">
           <label htmlFor="fileInput">
-            <i className=" writeIcon fas fa-plus"></i>
+            <i className="writeIcon fas fa-plus"></i>
           </label>
           <input
             type="file"
             id="fileInput"
-            style={{ display: 'none' }}
+            style={{ display: "none" }}
             onChange={(e) => setFile(e.target.files[0])}
           />
           <input
@@ -59,7 +67,7 @@ export default function Write() {
         </div>
         <div className="writeFormGroup">
           <textarea
-            placeholder="Write here..."
+            placeholder="Tell your story..."
             type="text"
             className="writeInput writeText"
             onChange={(e) => setDesc(e.target.value)}

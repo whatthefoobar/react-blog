@@ -1,12 +1,12 @@
-import React, { useContext, useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import { Context } from '../context/Context';
-import { BiMenuAltRight } from 'react-icons/bi';
-import { AiOutlineClose } from 'react-icons/ai';
+import React, { useContext, useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { Context } from "../context/Context";
+import { BiMenuAltRight } from "react-icons/bi";
+import { AiOutlineClose } from "react-icons/ai";
 
 export default function Navbar() {
   const { user, dispatch } = useContext(Context);
-  const publicFolder = 'http://localhost:5000/images/';
+  const publicFolder = "http://localhost:5000/images/";
 
   const [menuOpen, setMenuOpen] = useState(false);
   const [size, setSize] = useState({
@@ -21,9 +21,9 @@ export default function Navbar() {
         height: window.innerHeight,
       });
     };
-    window.addEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
 
-    return () => window.removeEventListener('resize', handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   useEffect(() => {
@@ -37,7 +37,7 @@ export default function Navbar() {
   };
 
   const handleLogout = () => {
-    dispatch({ type: 'LOGOUT' });
+    dispatch({ type: "LOGOUT" });
   };
 
   return (
@@ -48,7 +48,7 @@ export default function Navbar() {
         </Link>
         <nav
           className={`nav-bar__content__nav ${
-            menuOpen && size.width < 768 ? 'isMenu' : ''
+            menuOpen && size.width < 768 ? "isMenu" : ""
           }`}
         >
           <ul>
@@ -81,7 +81,7 @@ export default function Navbar() {
                   src={
                     user.profilePic
                       ? publicFolder + user.profilePic
-                      : 'https://images.pexels.com/photos/4132327/pexels-photo-4132327.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
+                      : "https://images.pexels.com/photos/4132327/pexels-photo-4132327.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
                   }
                   alt="user profile"
                 />

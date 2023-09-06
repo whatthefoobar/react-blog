@@ -19,7 +19,7 @@ export default function SinglePost() {
   useEffect(() => {
     const getPost = async () => {
       const res = await axios.get("/posts/" + postId);
-      console.log(res);
+      // console.log(res);
       // we have a res.data.categories array
       setPost(res.data);
       setTitle(res.data.title);
@@ -107,15 +107,15 @@ export default function SinglePost() {
         {updateMode ? (
           // ne a checkbox component
           <form className="singlePostCategories">
-            <label htmlFor="ategory">Choose a category:</label>
-            <select name="category" id="cars">
+            <label htmlFor="category">Choose a category:</label>
+            <select name="category" id="cats">
               <option value="music">music</option>
               <option value="tech">tech</option>
               <option value="diy">diy</option>
               <option value="health">health</option>
               <option value="fashion">fashion</option>
               <option value="economy">economy</option>
-              <option value="factivism">activism</option>
+              <option value="activism">activism</option>
               <button type="submit">Submit</button>
             </select>
           </form>

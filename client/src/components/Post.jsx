@@ -1,5 +1,5 @@
-// import '../css/components/post.css';
 import { Link } from "react-router-dom";
+import generateRandomKey from "../util/generateRandomKey"; // not pretty but it'll do for now
 
 export default function Post({ post }) {
   const publicFolder = "http://localhost:5000/images/";
@@ -16,8 +16,8 @@ export default function Post({ post }) {
         )}
         <div className="postInfo">
           <div className="postCats">
-            {post.categories.map((c) => (
-              <span className="postCat" key={c._id}>
+            {post.categories.map((c, index) => (
+              <span key={generateRandomKey(10)} className="postCat">
                 {c.name}
               </span>
             ))}

@@ -1,0 +1,52 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "Header post 1",
+      "previewImage": "https://images.pexels.com/photos/3568520/pexels-photo-3568520.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+      "shortSummary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "fullSummary": "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting.",
+      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed viverra tellus in hac habitasse platea dictumst. Amet massa vitae tortor condimentum lacinia quis vel. Venenatis tellus in metus vulputate eu scelerisque felis imperdiet. Suscipit tellus mauris a diam maecenas sed enim ut sem. Accumsan lacus vel facilisis volutpat. Posuere ac ut consequat semper viverra. Euismod elementum nisi quis eleifend. Et tortor consequat id porta nibh venenatis. Amet consectetur adipiscing elit duis tristique sollicitudin. Ipsum dolor sit amet consectetur adipiscing. Placerat duis ultricies lacus sed turpis tincidunt id aliquet. Dignissim suspendisse in est ante."
+    },
+    {
+      "id": 2,
+      "title": "Header post 2",
+      "previewImage": "https://images.pexels.com/photos/3861964/pexels-photo-3861964.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+      "shortSummary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "fullSummary": "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting.",
+      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed viverra tellus in hac habitasse platea dictumst. Amet massa vitae tortor condimentum lacinia quis vel. Venenatis tellus in metus vulputate eu scelerisque felis imperdiet. Suscipit tellus mauris a diam maecenas sed enim ut sem. Accumsan lacus vel facilisis volutpat. Posuere ac ut consequat semper viverra. Euismod elementum nisi quis eleifend. Et tortor consequat id porta nibh venenatis. Amet consectetur adipiscing elit duis tristique sollicitudin. Ipsum dolor sit amet consectetur adipiscing. Placerat duis ultricies lacus sed turpis tincidunt id aliquet. Dignissim suspendisse in est ante."
+    },
+    {
+      "id": 3,
+      "title": "Header post 3",
+      "previewImage": "https://images.pexels.com/photos/3345882/pexels-photo-3345882.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+      "shortSummary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "fullSummary": "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting.",
+      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed viverra tellus in hac habitasse platea dictumst. Amet massa vitae tortor condimentum lacinia quis vel. Venenatis tellus in metus vulputate eu scelerisque felis imperdiet. Suscipit tellus mauris a diam maecenas sed enim ut sem. Accumsan lacus vel facilisis volutpat. Posuere ac ut consequat semper viverra. Euismod elementum nisi quis eleifend. Et tortor consequat id porta nibh venenatis. Amet consectetur adipiscing elit duis tristique sollicitudin. Ipsum dolor sit amet consectetur adipiscing. Placerat duis ultricies lacus sed turpis tincidunt id aliquet. Dignissim suspendisse in est ante."
+    },
+    {
+      "id": 4,
+      "title": "Header post 4",
+      "previewImage": "https://images.pexels.com/photos/4348401/pexels-photo-4348401.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+      "shortSummary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "fullSummary": "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting.",
+      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed viverra tellus in hac habitasse platea dictumst. Amet massa vitae tortor condimentum lacinia quis vel. Venenatis tellus in metus vulputate eu scelerisque felis imperdiet. Suscipit tellus mauris a diam maecenas sed enim ut sem. Accumsan lacus vel facilisis volutpat. Posuere ac ut consequat semper viverra. Euismod elementum nisi quis eleifend. Et tortor consequat id porta nibh venenatis. Amet consectetur adipiscing elit duis tristique sollicitudin. Ipsum dolor sit amet consectetur adipiscing. Placerat duis ultricies lacus sed turpis tincidunt id aliquet. Dignissim suspendisse in est ante."
+    },
+    {
+      "id": 5,
+      "title": "Header post 5",
+      "previewImage": "https://images.pexels.com/photos/2280547/pexels-photo-2280547.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+      "shortSummary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "fullSummary": "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting.",
+      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed viverra tellus in hac habitasse platea dictumst. Amet massa vitae tortor condimentum lacinia quis vel. Venenatis tellus in metus vulputate eu scelerisque felis imperdiet. Suscipit tellus mauris a diam maecenas sed enim ut sem. Accumsan lacus vel facilisis volutpat. Posuere ac ut consequat semper viverra. Euismod elementum nisi quis eleifend. Et tortor consequat id porta nibh venenatis. Amet consectetur adipiscing elit duis tristique sollicitudin. Ipsum dolor sit amet consectetur adipiscing. Placerat duis ultricies lacus sed turpis tincidunt id aliquet. Dignissim suspendisse in est ante."
+    },
+    {
+      "id": 6,
+      "title": "Header post 6",
+      "previewImage": "https://images.pexels.com/photos/3082341/pexels-photo-3082341.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+      "shortSummary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "fullSummary": "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting.",
+      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed viverra tellus in hac habitasse platea dictumst. Amet massa vitae tortor condimentum lacinia quis vel. Venenatis tellus in metus vulputate eu scelerisque felis imperdiet. Suscipit tellus mauris a diam maecenas sed enim ut sem. Accumsan lacus vel facilisis volutpat. Posuere ac ut consequat semper viverra. Euismod elementum nisi quis eleifend. Et tortor consequat id porta nibh venenatis. Amet consectetur adipiscing elit duis tristique sollicitudin. Ipsum dolor sit amet consectetur adipiscing. Placerat duis ultricies lacus sed turpis tincidunt id aliquet. Dignissim suspendisse in est ante."
+    }
+  ]
+}
