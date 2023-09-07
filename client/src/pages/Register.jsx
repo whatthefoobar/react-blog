@@ -54,11 +54,10 @@ export default function Register() {
         </button>
         <div className="loginOption">
           <p>Already have an account?</p>
-          <button className="registerLoginButton">
-            <Link className="link" to="/login">
-              Login
-            </Link>
-          </button>
+
+          <Link className="link link-hover" to="/login">
+            Login here.
+          </Link>
         </div>
       </form>
 

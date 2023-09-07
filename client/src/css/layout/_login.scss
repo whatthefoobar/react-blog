@@ -20,12 +20,12 @@
       from(rgba(255, 255, 255, 0.5)),
       to(rgba(255, 255, 255, 0.5))
     ),
-    url('https://images.pexels.com/photos/768473/pexels-photo-768473.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
+    url("https://images.pexels.com/photos/768473/pexels-photo-768473.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
   background: linear-gradient(
       rgba(255, 255, 255, 0.5),
       rgba(255, 255, 255, 0.5)
     ),
-    url('https://images.pexels.com/photos/768473/pexels-photo-768473.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
+    url("https://images.pexels.com/photos/768473/pexels-photo-768473.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
   background-size: cover;
 }
 
@@ -69,18 +69,28 @@
   background-color: rgb(252, 173, 173);
 }
 .registerOption {
-  margin-top: 10px;
+  margin-top: 20px;
   display: flex;
   justify-content: center;
   flex-direction: column;
 }
-.loginRegisterButton {
-  margin-top: 10px;
-  width: 100%;
-  background-color: teal;
-  cursor: pointer;
-  border: none;
-  padding: 10px;
-  color: white;
-  border-radius: 10px;
+.loginOption {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
+
+.link-hover:hover {
+  color: lightcoral;
+}
+// .loginRegisterButton {
+//   margin-top: 10px;
+//   width: 100%;
+//   background-color: teal;
+//   cursor: pointer;
+//   border: none;
+//   padding: 10px;
+//   color: white;
+//   border-radius: 10px;
+// }

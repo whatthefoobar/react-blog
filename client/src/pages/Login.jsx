@@ -46,11 +46,10 @@ export default function Login() {
         </button>
         <div className="registerOption">
           <p>Don't have an account?</p>
-          <button className="loginRegisterButton">
-            <Link className="link" to="/register">
-              Register
-            </Link>
-          </button>
+
+          <Link className="link link-hover" to="/register">
+            Register here.
+          </Link>
         </div>
       </form>
     </div>

@@ -20,12 +20,12 @@
       from(rgba(255, 255, 255, 0.5)),
       to(rgba(255, 255, 255, 0.5))
     ),
-    url('https://images.pexels.com/photos/210660/pexels-photo-210660.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
+    url("https://images.pexels.com/photos/210660/pexels-photo-210660.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
   background: linear-gradient(
       rgba(255, 255, 255, 0.5),
       rgba(255, 255, 255, 0.5)
     ),
-    url('https://images.pexels.com/photos/210660/pexels-photo-210660.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
+    url("https://images.pexels.com/photos/210660/pexels-photo-210660.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
   background-size: cover;
 }
 
@@ -64,19 +64,23 @@
   padding: 10px;
 }
 
-.login-option {
-  margin-top: 10px;
+.loginOption {
+  margin-top: 20px;
   display: flex;
   justify-content: center;
   flex-direction: column;
 }
-.registerLoginButton {
-  margin-top: 10px;
-  width: 100%;
-  background-color: lightcoral;
-  cursor: pointer;
-  border: none;
-  padding: 10px;
-  color: white;
-  border-radius: 10px;
+
+.link-hover:hover {
+  color: lightcoral;
 }
+// .registerLoginButton {
+//   margin-top: 10px;
+//   width: 100%;
+//   background-color: lightcoral;
+//   cursor: pointer;
+//   border: none;
+//   padding: 10px;
+//   color: white;
+//   border-radius: 10px;
+// }
