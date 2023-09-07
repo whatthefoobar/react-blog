@@ -23,6 +23,9 @@ export default function Home() {
     };
     fetchPosts();
   }, [search]);
+  useEffect(() => {
+    console.log(posts);
+  }, [posts]);
 
   const [currentPage, setCurrentPage] = useState(1);
   const postsPerPage = 8;
@@ -37,19 +40,22 @@ export default function Home() {
       {loading ? (
         <div className="loading">Loading posts...</div>
       ) : (
-        <>
-          <div className="home">
-            {Array.isArray(currentPosts) && currentPosts.length > 0 && (
+        <div className="home">
+          {posts.length !== 0 && Array.isArray(currentPosts) ? (
+            <>
               <Posts posts={currentPosts} />
-            )}
-          </div>
-          <Pagination
-            totalPosts={posts.length}
-            postsPerPage={postsPerPage}
-            setCurrentPage={setCurrentPage}
-            currentPage={currentPage}
-          />
-        </>
+
+              <Pagination
+                totalPosts={posts.length}
+                postsPerPage={postsPerPage}
+                setCurrentPage={setCurrentPage}
+                currentPage={currentPage}
+              />
+            </>
+          ) : (
+            <p className="not-found">No posts found.</p>
+          )}
+        </div>
       )}
     </>
   );
