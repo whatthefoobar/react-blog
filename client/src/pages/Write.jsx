@@ -15,41 +15,32 @@ export default function Write() {
       title,
       desc,
     };
-
     if (file) {
+      // if there is an img uploaded
       const data = new FormData();
-      data.append("image", file);
-
+      const filename = Date.now() + file.name;
+      data.append("name", filename);
+      data.append("file", file);
+      newPost.photo = filename;
       try {
-        // Upload the image to the server
-        const uploadResponse = await axios.post("/upload", data);
-
-        if (uploadResponse.status === 200) {
-          newPost.photo = uploadResponse.data.image; // Set the photo field in your post object
-        }
-      } catch (err) {
-        console.error("Error uploading image:", err);
-      }
+        await axios.post("/upload", data);
+      } catch (err) {}
     }
-
     try {
-      // Create a new post with the updated post object
-      const postResponse = await axios.post("/posts", newPost);
-      window.location.replace("/post/" + postResponse.data._id);
-    } catch (err) {
-      console.error("Error creating post:", err);
-    }
+      const res = await axios.post("/posts", newPost);
+      window.location.replace("/post/" + res.data._id);
+    } catch (err) {}
   };
 
   return (
     <div className="write">
       {file && (
-        <img className="writeImg" src={URL.createObjectURL(file)} alt="blog" />
+        <img className="writeImg" src={URL.createObjectURL(file)} alt="" />
       )}
       <form className="writeForm" onSubmit={handleSubmit}>
         <div className="writeFormGroup">
           <label htmlFor="fileInput">
-            <i className="writeIcon fas fa-plus"></i>
+            <i className=" writeIcon fas fa-plus"></i>
           </label>
           <input
             type="file"
@@ -67,7 +58,7 @@ export default function Write() {
         </div>
         <div className="writeFormGroup">
           <textarea
-            placeholder="Tell your story..."
+            placeholder="Write here..."
             type="text"
             className="writeInput writeText"
             onChange={(e) => setDesc(e.target.value)}

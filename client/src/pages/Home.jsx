@@ -29,13 +29,6 @@ export default function Home() {
   const lastPostIndex = currentPage * postsPerPage;
   const firstPostIndex = lastPostIndex - postsPerPage;
   const currentPosts = posts.slice(firstPostIndex, lastPostIndex);
-  // console.log(currentPosts);
-
-  // useEffect(() => {
-  //   console.log("all fetched posts:", posts);
-  //   console.log(Array.isArray(posts)); //true
-  //   console.log(Array.isArray([]));
-  // }, [posts]);
 
   return (
     <>
