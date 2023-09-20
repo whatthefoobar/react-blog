@@ -1,5 +1,5 @@
 import React from "react";
-import Sidebar from "./Sidebar";
+// import Sidebar from "./Sidebar";
 import { Link } from "react-router-dom";
 
 export default function Header() {
@@ -30,7 +30,7 @@ export default function Header() {
           </div>
         </section>
       </div>
-      <Sidebar />
+      {/* <Sidebar /> */}
     </div>
   );
 }

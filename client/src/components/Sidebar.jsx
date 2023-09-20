@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-export default function Sidebar() {
+const Sidebar = () => {
   const [cats, setCats] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -67,4 +67,6 @@ export default function Sidebar() {
       </div>
     </div>
   );
-}
+};
+
+export default Sidebar;
