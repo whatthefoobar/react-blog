@@ -1,6 +1,3 @@
-Note to self: Heroku free tier is dead, need to deploy app 's backend through RENDER.
-Updated: deployed succesfully to Render
-
 
 # react-blog
 
