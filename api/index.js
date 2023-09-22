@@ -1,5 +1,6 @@
 import express from "express";
 import dotenv from "dotenv";
+import cors from "cors";
 import authRoute from "./routes/auth.js";
 import userRoute from "./routes/users.js";
 import postRoute from "./routes/posts.js";
@@ -12,6 +13,15 @@ const app = express();
 dotenv.config();
 
 app.use(express.json());
+const corsOptions = {
+  origin: "http://127.0.0.1:5173", // Allow requests from this origin
+  methods: "GET,HEAD,PUT,PATCH,POST,DELETE", // Allow specified HTTP methods
+  credentials: true, // Allow credentials (cookies, authorization headers, etc.)
+  optionsSuccessStatus: 204, // Respond with a 204 No Content status for preflight requests
+};
+
+app.use(cors(corsOptions));
+
 // const __dirname = path.resolve();
 // app.use("/images", express.static(path.join(__dirname, "/images")));
 
@@ -45,10 +55,10 @@ const __dirname = path.resolve();
 app.use("/images", express.static(path.join(__dirname, "/images")));
 
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static(path.join(__dirname, "/client/build")));
+  app.use(express.static(path.join(__dirname, "/client/dist")));
 
   app.get("*", (req, res) =>
-    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"))
+    res.sendFile(path.resolve(__dirname, "client", "dist", "index.html"))
   );
 } else {
   app.get("/", (req, res) => {

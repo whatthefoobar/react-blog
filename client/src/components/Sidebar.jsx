@@ -8,7 +8,7 @@ const Sidebar = () => {
 
   const getCats = async () => {
     try {
-      const res = await axios.get("/categories");
+      const res = await axios.get("api/categories");
       setCats(res.data);
       setLoading(false);
     } catch (error) {

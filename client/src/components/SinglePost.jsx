@@ -4,6 +4,7 @@ import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 import { Context } from "../context/Context";
+import generateRandomKey from "../util/generateRandomKey";
 
 export default function SinglePost() {
   const { postId } = useParams();
@@ -125,7 +126,7 @@ export default function SinglePost() {
           <div className="singlePostCategories">
             {categories.map((category) => (
               <>
-                <span key={category._id}>{category}</span>{" "}
+                <span key={generateRandomKey(10)}>{category}</span>{" "}
               </>
             ))}
           </div>
