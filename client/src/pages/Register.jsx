@@ -52,14 +52,14 @@ export default function Register() {
         <button className="registerButton" type="submit">
           Register
         </button>
-        <div className="loginOption">
-          <p>Already have an account?</p>
-
-          <Link className="link link-hover" to="/login">
-            Login here.
-          </Link>
-        </div>
       </form>
+      <div className="loginOption">
+        <p>Already have an account?</p>
+
+        <Link className="link link-hover" to="/login">
+          Login here.
+        </Link>
+      </div>
 
       {error && (
         <span style={{ color: "red", marginTop: "10px" }}>
