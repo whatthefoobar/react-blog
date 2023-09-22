@@ -14,7 +14,7 @@ export default function Home() {
     const fetchPosts = async () => {
       try {
         const res = await axios.get("/api/posts" + search);
-        console.log(res);
+        // console.log(res);
         setPosts(res.data);
         setLoading(false);
       } catch (error) {
