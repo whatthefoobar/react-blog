@@ -1,8 +1,8 @@
-import Sidebar from '../components/Sidebar';
+import Sidebar from "../components/Sidebar";
 // import '../css/layout/settings.scss';
-import axios from 'axios';
-import { useContext, useState } from 'react';
-import { Context } from '../context/Context';
+import axios from "axios";
+import { useContext, useState } from "react";
+import { Context } from "../context/Context";
 
 export default function Settings() {
   const { user, dispatch } = useContext(Context);
@@ -10,14 +10,14 @@ export default function Settings() {
   const [file, setFile] = useState(null);
   const [username, setUsername] = useState(user.username);
   const [email, setEmail] = useState(user.email);
-  const [password, setPassword] = useState('');
+  const [password, setPassword] = useState("");
   const [success, setSuccess] = useState(false);
 
-  const publicFolder = 'http://localhost:5000/images/';
+  const publicFolder = "http://localhost:5000/images/";
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    dispatch({ type: 'UPDATE_START' });
+    dispatch({ type: "UPDATE_START" });
     const updatedUser = {
       userId: user._id,
       username,
@@ -27,19 +27,21 @@ export default function Settings() {
     if (file) {
       const data = new FormData();
       const filename = Date.now() + file.name;
-      data.append('name', filename);
-      data.append('file', file);
+      data.append("name", filename);
+      data.append("file", file);
       updatedUser.profilePic = filename;
       try {
-        await axios.post('/upload', data);
-      } catch (err) {}
+        await axios.post("/upload", data);
+      } catch (err) {
+        console.log(err);
+      }
     }
     try {
-      const res = await axios.put('/users/' + user._id, updatedUser);
+      const res = await axios.put("/api/users/" + user._id, updatedUser);
       setSuccess(true);
-      dispatch({ type: 'UPDATE_SUCCESS', payload: res.data });
+      dispatch({ type: "UPDATE_SUCCESS", payload: res.data });
     } catch (err) {
-      dispatch({ type: 'UPDATE_FAILURE' });
+      dispatch({ type: "UPDATE_FAILURE" });
     }
   };
 
@@ -59,7 +61,7 @@ export default function Settings() {
                   ? URL.createObjectURL(file)
                   : user.profilePic
                   ? publicFolder + user.profilePic
-                  : 'https://images.pexels.com/photos/4132327/pexels-photo-4132327.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
+                  : "https://images.pexels.com/photos/4132327/pexels-photo-4132327.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
               }
               alt=""
             />
@@ -69,7 +71,7 @@ export default function Settings() {
             <input
               type="file"
               id="fileInput"
-              style={{ display: 'none' }}
+              style={{ display: "none" }}
               onChange={(e) => setFile(e.target.files[0])}
             />
           </div>
@@ -97,7 +99,7 @@ export default function Settings() {
           </button>
           {success && (
             <span
-              style={{ color: 'green', textAlign: 'center', marginTop: '20px' }}
+              style={{ color: "green", textAlign: "center", marginTop: "20px" }}
             >
               Profile has been updated...
             </span>

@@ -48,7 +48,7 @@ export default function Navbar() {
         </Link>
         <nav
           className={`nav-bar__content__nav ${
-            menuOpen && size.width < 768 ? "isMenu" : ""
+            menuOpen && size.width < 768 ? "menuOpen" : ""
           }`}
         >
           <ul>

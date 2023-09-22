@@ -34,7 +34,7 @@ export default function SinglePost() {
     console.log("postId:", postId);
     console.log("user.username:", user.username);
     try {
-      await axios.delete(`/posts/${post._id}`, {
+      await axios.delete(`/api/posts/${post._id}`, {
         data: { username: user.username },
       });
       window.location.replace("/");
@@ -45,7 +45,7 @@ export default function SinglePost() {
 
   const handleUpdate = async () => {
     try {
-      await axios.put(`/posts/${post._id}`, {
+      await axios.put(`/api/posts/${post._id}`, {
         username: user.username,
         title,
         desc,
