@@ -55,7 +55,7 @@ export default function Login() {
         </span>
       )}
       <div className="registerOption">
-        <p>Don't have an account?</p>
+        <p>Don&apos;t have an account?</p>
 
         <Link className="link link-hover" to="/register">
           Register here.
