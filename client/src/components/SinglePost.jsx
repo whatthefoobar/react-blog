@@ -19,7 +19,7 @@ export default function SinglePost() {
 
   useEffect(() => {
     const getPost = async () => {
-      const res = await axios.get("/posts/" + postId);
+      const res = await axios.get("/api/posts/" + postId);
       // console.log(res);
       // we have a res.data.categories array
       setPost(res.data);
