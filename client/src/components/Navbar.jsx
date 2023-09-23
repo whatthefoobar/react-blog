@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../context/Context";
 import { BiMenuAltRight } from "react-icons/bi";
@@ -27,7 +27,7 @@ export default function Navbar() {
   }, []);
 
   useEffect(() => {
-    if (size.width > 768 && menuOpen) {
+    if (size.width > 900 && menuOpen) {
       setMenuOpen(false);
     }
   }, [size.width, menuOpen]);
@@ -48,31 +48,21 @@ export default function Navbar() {
         </Link>
         <nav
           className={`nav-bar__content__nav ${
-            menuOpen && size.width < 768 ? "menuOpen" : ""
+            menuOpen && size.width < 900 ? "menuOpen" : ""
           }`}
         >
-          <ul>
+          <ul onClick={menuToggleHandler}>
             <li>
-              <Link to="/" onClick={menuToggleHandler}>
-                Home
-              </Link>
+              <Link to="/">Home</Link>
             </li>
             <li>
-              <Link to="/about" onClick={menuToggleHandler}>
-                About
-              </Link>
+              <Link to="/about">About</Link>
             </li>
             <li>
-              <Link to="/write" onClick={menuToggleHandler}>
-                Write
-              </Link>
+              <Link to="/write">Write</Link>
             </li>
             <li className="topListItem" onClick={handleLogout}>
-              {user && (
-                <p onClick={menuToggleHandler} className="logout">
-                  Logout
-                </p>
-              )}
+              {user && <p className="logout">Logout</p>}
             </li>
             {user ? (
               <Link to="/settings" className="link">
@@ -89,20 +79,14 @@ export default function Navbar() {
               </Link>
             ) : (
               <li>
-                <Link to="/login" onClick={menuToggleHandler}>
-                  Login
-                </Link>
+                <Link to="/login">Login</Link>
               </li>
             )}
           </ul>
         </nav>
         {/* Nav btn on small screen */}
-        <div className="nav-bar__content__toggle">
-          {!menuOpen ? (
-            <BiMenuAltRight onClick={menuToggleHandler} />
-          ) : (
-            <AiOutlineClose onClick={menuToggleHandler} />
-          )}
+        <div className="nav-bar__content__toggle" onClick={menuToggleHandler}>
+          {!menuOpen ? <BiMenuAltRight /> : <AiOutlineClose />}
         </div>
       </div>
     </nav>
