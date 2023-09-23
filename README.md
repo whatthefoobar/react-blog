@@ -4,6 +4,8 @@
 Mission: fullstack MERN blog with editable blog post, infinite scroll lazy loading and carousel component of blog posts in the Home section.
 Bonus: change from JavaScript to TypeScript
 
+Edit: Updated UI briefly should fix Render issue with Vite so I can deploy the app as a fullstack project (not deploy api and client separately)
+
 Quick Preview (UI is subject to changes):
 
 
