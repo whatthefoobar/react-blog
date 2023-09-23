@@ -5,7 +5,7 @@
   "engines": {
     "node": "16.15.0"
   },
-  "description": " an eco blog built with react and node",
+  "description": "an eco blog built with react and node",
   "main": "index.js",
   "scripts": {
     "start": "node api/index.js",
