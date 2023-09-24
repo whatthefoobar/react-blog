@@ -6,7 +6,7 @@
     "node": "18.18.0"
   },
   "description": "an eco blog built with react and node",
-  "main": "index.js",
+  "main": "api/index.js",
   "scripts": {
     "start": "node api/index.js",
     "server": "nodemon api/index.js",
