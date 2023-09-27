@@ -7,7 +7,7 @@ import Register from "../src/pages/Register";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import About from "./pages/About";
 import { useContext } from "react";
-import { Context } from "./context/Context";
+import { Context } from "./context/Context.js";
 import Navbar from "./components/Navbar";
 
 function App() {
