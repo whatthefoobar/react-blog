@@ -1,5 +1,7 @@
 # react-blog
 
+ <!-- "build": "npm install && npm install --prefix client && npm run build --prefix client" -->
+
 Mission: fullstack MERN blog with editable blog post, infinite scroll lazy loading and carousel component of blog posts in the Home section.
 Bonus: change from JavaScript to TypeScript
 
