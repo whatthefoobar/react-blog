@@ -1,14 +1,14 @@
-import { useContext } from 'react';
-import { Link } from 'react-router-dom';
-import { Context } from '../context/Context';
+import { useContext } from "react";
+import { Link } from "react-router-dom";
+import { Context } from "../context/Context";
 // import '../css/components/topbar.css';
 
 export default function TopBar() {
   const { user, dispatch } = useContext(Context);
-  const publicFolder = 'http://localhost:5000/images/';
+  const publicFolder = "/images/";
 
   const handleLogout = () => {
-    dispatch({ type: 'LOGOUT' });
+    dispatch({ type: "LOGOUT" });
   };
 
   return (
@@ -46,7 +46,7 @@ export default function TopBar() {
             </Link>
           </li>
           <li className="topListItem" onClick={handleLogout}>
-            {user && 'LOGOUT'}
+            {user && "LOGOUT"}
           </li>
         </ul>
       </div>
@@ -58,7 +58,7 @@ export default function TopBar() {
               src={
                 user.profilePic
                   ? publicFolder + user.profilePic
-                  : 'https://images.pexels.com/photos/4132327/pexels-photo-4132327.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
+                  : "https://images.pexels.com/photos/4132327/pexels-photo-4132327.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
               }
               alt="user profile"
             />

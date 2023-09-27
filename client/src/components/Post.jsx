@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import generateRandomKey from "../util/generateRandomKey"; // not pretty but it'll do for now
 
 export default function Post({ post }) {
-  const publicFolder = "http://localhost:5000/images/";
+  const publicFolder = "/images/";
 
   return (
     <Link to={`/post/${post._id}`} className="link">
