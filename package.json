@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "type": "module",
   "engines": {
-    "node": ">=14 <15"
+    "node": "18.18.0"
   },
   "description": "an eco blog built with react and node",
   "main": "api/index.js",
