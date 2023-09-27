@@ -10,7 +10,7 @@ export default function SinglePost() {
   const { postId } = useParams();
 
   const [post, setPost] = useState({});
-  const PF = "/images/";
+  const publicFolder = "http://localhost:5000/images/";
   const { user } = useContext(Context);
   const [title, setTitle] = useState("");
   const [desc, setDesc] = useState("");
@@ -60,7 +60,11 @@ export default function SinglePost() {
     <div className="singlePost">
       <div className="singlePostWrapper">
         {post.photo && (
-          <img src={PF + post.photo} alt="" className="singlePostImg" />
+          <img
+            src={publicFolder + post.photo}
+            alt=""
+            className="singlePostImg"
+          />
         )}
         {updateMode ? (
           <input
