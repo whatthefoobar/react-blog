@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "type": "module",
   "engines": {
-    "node": "18.18.0"
+    "node": ">=14 <15"
   },
   "description": "an eco blog built with react and node",
   "main": "api/index.js",
@@ -12,7 +12,7 @@
     "server": "nodemon api/index.js",
     "client": "npm run start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "build": "cd api && npm install && cd ../client && npm install && npm run build"
+    "build": "npm install && cd client && npm install && npm run build"
   },
   "keywords": [],
   "author": "",
