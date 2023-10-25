@@ -1,5 +1,26 @@
 .posts-and-side {
   display: flex;
+  flex-direction: column;
+}
+
+.link-btns {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.link-btns .link {
+  text-decoration: none;
+  display: inline-block;
+  margin: 5px;
+  padding: 5px 10px;
+  background-color: #c3699f; /* Change this to your desired button background color */
+  color: #fff; /* Change this to your desired button text color */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
 .posts {
   padding: 0 10px;

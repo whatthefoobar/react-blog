@@ -1,4 +1,4 @@
-import Sidebar from "../components/Sidebar";
+// import Sidebar from "../components/Sidebar";
 // import '../css/layout/settings.scss';
 import axios from "axios";
 import { useContext, useState } from "react";
@@ -106,7 +106,7 @@ export default function Settings() {
           )}
         </form>
       </div>
-      <Sidebar />
+      {/* <Sidebar /> */}
     </div>
   );
 }

@@ -20,6 +20,7 @@ const Sidebar = () => {
   useEffect(() => {
     getCats();
   }, []);
+
   return (
     <div className="sidebar">
       <div className="sidebarItem">
