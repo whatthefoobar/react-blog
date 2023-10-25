@@ -3,6 +3,7 @@
 import axios from "axios";
 import { useContext, useState } from "react";
 import { Context } from "../context/Context";
+import Sidebar from "../components/Sidebar";
 
 export default function Settings() {
   const { user, dispatch } = useContext(Context);
@@ -106,7 +107,7 @@ export default function Settings() {
           )}
         </form>
       </div>
-      {/* <Sidebar /> */}
+      <Sidebar />
     </div>
   );
 }

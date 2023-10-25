@@ -1,4 +1,5 @@
 // import '../css/layout/about.scss';
+import Sidebar from "../components/Sidebar";
 
 export default function About() {
   return (
@@ -31,7 +32,7 @@ export default function About() {
           nobis rem.
         </p>
       </div>
-      {/* <Sidebar /> */}
+      <Sidebar />
     </div>
   );
 }
