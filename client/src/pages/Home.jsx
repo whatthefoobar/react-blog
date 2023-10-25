@@ -29,7 +29,7 @@ export default function Home() {
   // }, [posts]);
 
   const [currentPage, setCurrentPage] = useState(1);
-  const postsPerPage = 6;
+  const postsPerPage = 8;
   const lastPostIndex = currentPage * postsPerPage;
   const firstPostIndex = lastPostIndex - postsPerPage;
   const currentPosts = posts.slice(firstPostIndex, lastPostIndex);
