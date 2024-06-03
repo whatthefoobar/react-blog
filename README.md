@@ -1,5 +1,10 @@
 # react-blog
 
+TODO:
+- clean up pagination UI
+- add active button class in pagination to reflect page number
+- add skeleton loading for cards
+
 Deployed as a fullstack to Render (client built with vite did not work when deploying Vercel or Render, reverted to client built with CRA)
 
 Mission: fullstack MERN blog with editable blog post, infinite scroll lazy loading and carousel component of blog posts in the Home section.
