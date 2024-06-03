@@ -4,6 +4,7 @@ TODO:
 - clean up pagination UI
 - add active button class in pagination to reflect page number
 - add skeleton loading for cards
+- look into upload image functionality as it breaks in one place
 
 Deployed as a fullstack to Render (client built with vite did not work when deploying Vercel or Render, reverted to client built with CRA)
 
