@@ -16,7 +16,7 @@ export default function Write() {
       desc,
     };
     if (file) {
-      // if there is an img uploaded
+      // if there is an img uploaded send it to mongodb
       console.log("file:", file);
       const data = new FormData();
       const filename = Date.now() + file.name;
@@ -43,6 +43,7 @@ export default function Write() {
 
   return (
     <div className="write">
+      {/* the image preview */}
       {file && (
         <img className="writeImg" src={URL.createObjectURL(file)} alt="" />
       )}
@@ -51,6 +52,7 @@ export default function Write() {
           <label htmlFor="fileInput">
             <i className=" writeIcon fas fa-plus"></i>
           </label>
+          {/* the image upload */}
           <input
             type="file"
             id="fileInput"

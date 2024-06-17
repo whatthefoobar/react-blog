@@ -20,6 +20,7 @@ export default function SinglePost() {
   useEffect(() => {
     const getPost = async () => {
       const res = await axios.get("/api/posts/" + postId);
+      console.log("individual post:", res.data);
       // we have a res.data.categories array
       setPost(res.data);
       setTitle(res.data.title);
@@ -56,6 +57,7 @@ export default function SinglePost() {
   return (
     <div className="singlePost">
       <div className="singlePostWrapper">
+        {/* create update mode to picture also */}
         {post.photo && (
           <img
             src={publicFolder + post.photo}
@@ -109,7 +111,7 @@ export default function SinglePost() {
           <p className="singlePostDesc">{desc}</p>
         )}
         {updateMode ? (
-          // ne a checkbox component
+          // need a checkbox component
           <form className="singlePostCategories">
             <label htmlFor="category">Choose a category:</label>
             <select name="category" id="cats">
@@ -120,13 +122,13 @@ export default function SinglePost() {
               <option value="fashion">fashion</option>
               <option value="economy">economy</option>
               <option value="activism">activism</option>
-              <button type="submit">Submit</button>
             </select>
+            <button type="submit">Submit</button>
           </form>
         ) : (
           <div className="singlePostCategories">
             {categories.map((category) => (
-              <span key={generateRandomKey(10)}>{category}</span>
+              <div key={generateRandomKey(10)}>{category}</div>
             ))}
           </div>
         )}
