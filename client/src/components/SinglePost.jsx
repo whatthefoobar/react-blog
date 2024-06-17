@@ -20,7 +20,6 @@ export default function SinglePost() {
   useEffect(() => {
     const getPost = async () => {
       const res = await axios.get("/api/posts/" + postId);
-      // console.log(res);
       // we have a res.data.categories array
       setPost(res.data);
       setTitle(res.data.title);
@@ -31,8 +30,6 @@ export default function SinglePost() {
   }, [postId]);
 
   const handleDelete = async () => {
-    console.log("postId:", postId);
-    console.log("user.username:", user.username);
     try {
       await axios.delete(`/api/posts/${post._id}`, {
         data: { username: user.username },

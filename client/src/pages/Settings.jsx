@@ -26,6 +26,7 @@ export default function Settings() {
       password,
     };
     if (file) {
+      console.log("file:", file);
       const data = new FormData();
       const filename = Date.now() + file.name;
       data.append("name", filename);

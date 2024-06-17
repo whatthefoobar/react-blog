@@ -17,6 +17,7 @@ export default function Write() {
     };
     if (file) {
       // if there is an img uploaded
+      console.log("file:", file);
       const data = new FormData();
       const filename = Date.now() + file.name;
       data.append("name", filename);
@@ -28,6 +29,7 @@ export default function Write() {
         console.log(err);
       }
     }
+
     try {
       const res = await axios.post("/api/posts", newPost);
       window.location.replace("/post/" + res.data._id);
@@ -35,6 +37,9 @@ export default function Write() {
       console.log(err);
     }
   };
+  if (file) {
+    console.log("file:", file);
+  }
 
   return (
     <div className="write">
