@@ -24,9 +24,6 @@ export default function Home() {
     };
     fetchPosts();
   }, [search]);
-  // useEffect(() => {
-  //   console.log(posts);
-  // }, [posts]);
 
   const [currentPage, setCurrentPage] = useState(1);
   const postsPerPage = 8;
