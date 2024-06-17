@@ -16,6 +16,11 @@ export default function Settings() {
 
   const publicFolder = "/images/";
 
+  // when we create a user it gets this image as a profile img
+  const defaultImg = publicFolder + "defaultUserImg.jpg";
+  const profileImg = user ? publicFolder + user.profilePic : defaultImg;
+  const imgSrc = file ? URL.createObjectURL(file) : profileImg;
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     dispatch({ type: "UPDATE_START" });
@@ -57,16 +62,7 @@ export default function Settings() {
         <form className="settingsForm" onSubmit={handleSubmit}>
           <label>Profile Picture</label>
           <div className="settingsPP">
-            <img
-              src={
-                file
-                  ? URL.createObjectURL(file)
-                  : user.profilePic
-                  ? publicFolder + user.profilePic
-                  : "https://images.pexels.com/photos/4132327/pexels-photo-4132327.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-              }
-              alt=""
-            />
+            <img src={imgSrc} alt="" />
             <label htmlFor="fileInput">
               <i className="settingsPPIcon far fa-user-circle"></i>
             </label>
