@@ -2,7 +2,7 @@
   "name": "react-blog",
   "version": "1.0.0",
   "type": "module",
-  "proxy": "https://react-blog-1s9g.onrender.com/",
+  "proxy": "http://localhost:5000",
   "description": "an eco blog built with react and node",
   "main": "api/index.js",
   "scripts": {
