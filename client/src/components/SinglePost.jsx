@@ -16,6 +16,7 @@ export default function SinglePost() {
   const [desc, setDesc] = useState("");
   const [updateMode, setUpdateMode] = useState(false);
   const [categories, setCategories] = useState([]);
+  const [selectedCategories, setSelectedCategories] = useState([]);
 
   useEffect(() => {
     const getPost = async () => {
@@ -52,6 +53,21 @@ export default function SinglePost() {
     } catch (err) {
       console.log(err);
     }
+  };
+
+  const handleChange = (event) => {
+    const value = event.target.value;
+    setSelectedCategories((prevCategories) =>
+      prevCategories.includes(value)
+        ? prevCategories.filter((category) => category !== value)
+        : [...prevCategories, value]
+    );
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log("Selected categories:", selectedCategories);
+    // You can perform further actions like sending the data to a server here
   };
 
   return (
@@ -112,17 +128,73 @@ export default function SinglePost() {
         )}
         {updateMode ? (
           // need a checkbox component
-          <form className="singlePostCategories">
-            <label htmlFor="category">Choose a category:</label>
-            <select name="category" id="cats">
-              <option value="music">music</option>
-              <option value="tech">tech</option>
-              <option value="diy">diy</option>
-              <option value="health">health</option>
-              <option value="fashion">fashion</option>
-              <option value="economy">economy</option>
-              <option value="activism">activism</option>
-            </select>
+          <form className="singlePostCategories" onSubmit={handleSubmit}>
+            <fieldset>
+              <legend>Choose categories:</legend>
+              <label>
+                <input
+                  type="checkbox"
+                  value="music"
+                  onChange={handleChange}
+                  checked={selectedCategories.includes("music")}
+                />
+                Music
+              </label>
+              <label>
+                <input
+                  type="checkbox"
+                  value="tech"
+                  onChange={handleChange}
+                  checked={selectedCategories.includes("tech")}
+                />
+                Tech
+              </label>
+              <label>
+                <input
+                  type="checkbox"
+                  value="diy"
+                  onChange={handleChange}
+                  checked={selectedCategories.includes("diy")}
+                />
+                DIY
+              </label>
+              <label>
+                <input
+                  type="checkbox"
+                  value="health"
+                  onChange={handleChange}
+                  checked={selectedCategories.includes("health")}
+                />
+                Health
+              </label>
+              <label>
+                <input
+                  type="checkbox"
+                  value="fashion"
+                  onChange={handleChange}
+                  checked={selectedCategories.includes("fashion")}
+                />
+                Fashion
+              </label>
+              <label>
+                <input
+                  type="checkbox"
+                  value="economy"
+                  onChange={handleChange}
+                  checked={selectedCategories.includes("economy")}
+                />
+                Economy
+              </label>
+              <label>
+                <input
+                  type="checkbox"
+                  value="activism"
+                  onChange={handleChange}
+                  checked={selectedCategories.includes("activism")}
+                />
+                Activism
+              </label>
+            </fieldset>
             <button type="submit">Submit</button>
           </form>
         ) : (

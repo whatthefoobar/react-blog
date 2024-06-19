@@ -16,7 +16,7 @@ export default function Write() {
       desc,
     };
     if (file) {
-      // if there is an img uploaded send it to mongodb
+      // if there is an img uploaded send it to multer and then mongodb
       console.log("file:", file);
       const data = new FormData();
       const filename = Date.now() + file.name;

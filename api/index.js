@@ -47,10 +47,6 @@ app.use("/api/users", userRoute);
 app.use("/api/posts", postRoute);
 app.use("/api/categories", categoryRoute);
 
-// app.get("/", (req, res) => {
-//   res.send("API is running....");
-// });
-
 const __dirname = path.resolve();
 app.use("/images", express.static(path.join(__dirname, "/images")));
 
