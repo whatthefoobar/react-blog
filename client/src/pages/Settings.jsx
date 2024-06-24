@@ -1,5 +1,3 @@
-// import Sidebar from "../components/Sidebar";
-// import '../css/layout/settings.scss';
 import axios from "axios";
 import { useContext, useState } from "react";
 import { Context } from "../context/Context";
@@ -14,11 +12,11 @@ export default function Settings() {
   const [password, setPassword] = useState("");
   const [success, setSuccess] = useState(false);
 
-  const publicFolder = "/images/";
+  // const publicFolder = "/images/";
 
   // when we create a user it gets this image as a profile img
-  const defaultImg = publicFolder + "defaultUserImg.jpg";
-  const profileImg = user ? publicFolder + user.profilePic : defaultImg;
+  const defaultImg = "/images/defaultUserImg.jpg";
+  const profileImg = user ? user.profilePic : defaultImg;
   const imgSrc = file ? URL.createObjectURL(file) : profileImg;
 
   const handleSubmit = async (e) => {
@@ -66,6 +64,7 @@ export default function Settings() {
             <label htmlFor="fileInput">
               <i className="settingsPPIcon far fa-user-circle"></i>
             </label>
+            {/* name must be same as upload.single("file") */}
             <input
               type="file"
               id="fileInput"

@@ -2,17 +2,11 @@ import { Link } from "react-router-dom";
 import generateRandomKey from "../util/generateRandomKey"; // not pretty but it'll do for now
 
 export default function Post({ post }) {
-  const publicFolder = "/images/";
-
   return (
     <Link to={`/post/${post._id}`} className="link">
       <div className="post">
         {post.photo && (
-          <img
-            className="postImg"
-            src={publicFolder + post.photo}
-            alt="blog post"
-          />
+          <img className="postImg" src={post.photo} alt="blog post" />
         )}
         <div className="postInfo">
           <div className="postCats">

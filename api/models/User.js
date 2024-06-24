@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 
 const UserSchema = mongoose.Schema(
   {
@@ -18,10 +18,26 @@ const UserSchema = mongoose.Schema(
     },
     profilePic: {
       type: String,
-      default: '',
+      default: "",
     },
   },
   { timestamps: true }
 );
-const User = mongoose.model('User', UserSchema);
+
+// Match user entered password to hashed password in database
+UserSchema.methods.matchPassword = async function (enteredPassword) {
+  return await bcrypt.compare(enteredPassword, this.password);
+};
+
+// Encrypt password using bcrypt
+UserSchema.pre("save", async function (next) {
+  if (!this.isModified("password")) {
+    next();
+  }
+
+  const salt = await bcrypt.genSalt(10);
+  this.password = await bcrypt.hash(this.password, salt);
+});
+
+const User = mongoose.model("User", UserSchema);
 export default User;

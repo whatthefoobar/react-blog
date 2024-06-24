@@ -5,7 +5,7 @@ import authRoute from "./routes/auth.js";
 import userRoute from "./routes/users.js";
 import postRoute from "./routes/posts.js";
 import categoryRoute from "./routes/categories.js";
-import multer, { diskStorage } from "multer";
+import uploadRoute from "./routes/upload.js";
 import path from "path";
 import connectDB from "./config/db.js";
 
@@ -22,32 +22,32 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 
-// const __dirname = path.resolve();
-// app.use("/images", express.static(path.join(__dirname, "/images")));
-
 connectDB();
+// const imgPath = path.join(__dirname, "/images");
+// console.log(path.join(__dirname, "/images"));
 
-const storage = diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, "images");
-  },
-  filename: (req, file, cb) => {
-    cb(null, req.body.name);
-  },
-});
+// const storage = diskStorage({
+//   destination: (req, file, cb) => {
+//     cb(null, "images");
+//   },
+//   filename: (req, file, cb) => {
+//     console.log(file);
+//     cb(
+//       null,
+//       `${Date.now()}${path.extname(file.originalname)}`
+//       // `${file.fieldname}-${Date.now()}${path.extname(file.originalname)}`
+//     );
+//   },
+// });
 
-const upload = multer({ storage: storage });
+// const upload = multer({ storage: storage });
 
-app.post("/api/upload", upload.single("file"), (req, res) => {
-  res.status(200).json("File has been uploaded");
-});
-
-app.use("/api/auth", authRoute);
-app.use("/api/users", userRoute);
-app.use("/api/posts", postRoute);
-app.use("/api/categories", categoryRoute);
+// app.post("/api/upload", upload.single("file"), (req, res) => {
+//   res.status(200).json("File has been uploaded");
+// });
 
 const __dirname = path.resolve();
+// console.log(path.join(__dirname, "/images"));
 app.use("/images", express.static(path.join(__dirname, "/images")));
 
 if (process.env.NODE_ENV === "production") {
@@ -61,6 +61,12 @@ if (process.env.NODE_ENV === "production") {
     res.send("API is running....");
   });
 }
+
+app.use("/api/auth", authRoute);
+app.use("/api/users", userRoute);
+app.use("/api/posts", postRoute);
+app.use("/api/categories", categoryRoute);
+app.use("/api/upload", uploadRoute);
 
 const port = process.env.PORT || 5000;
 app.listen(port, () => {

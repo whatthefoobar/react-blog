@@ -6,7 +6,7 @@ import { AiOutlineClose } from "react-icons/ai";
 
 export default function Navbar() {
   const { user, dispatch } = useContext(Context);
-  const publicFolder = "/images/";
+  // const publicFolder = "/images/";
 
   const [menuOpen, setMenuOpen] = useState(false);
   const [size, setSize] = useState({
@@ -70,8 +70,8 @@ export default function Navbar() {
                   className="topImg"
                   src={
                     user.profilePic
-                      ? publicFolder + user.profilePic
-                      : "https://images.pexels.com/photos/4132327/pexels-photo-4132327.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                      ? user.profilePic
+                      : "/images/defaultUserImg.jpg"
                   }
                   alt="user profile"
                 />
