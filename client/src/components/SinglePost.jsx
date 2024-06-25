@@ -5,6 +5,7 @@ import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 import { Context } from "../context/Context";
 import generateRandomKey from "../util/generateRandomKey";
+import CategoriesForm from "./CategoriesForm";
 
 export default function SinglePost() {
   const { postId } = useParams();
@@ -48,26 +49,12 @@ export default function SinglePost() {
         username: user.username,
         title,
         desc,
+        categories: selectedCategories,
       });
       setUpdateMode(false);
     } catch (err) {
       console.log(err);
     }
-  };
-
-  const handleChange = (event) => {
-    const value = event.target.value;
-    setSelectedCategories((prevCategories) =>
-      prevCategories.includes(value)
-        ? prevCategories.filter((category) => category !== value)
-        : [...prevCategories, value]
-    );
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    console.log("Selected categories:", selectedCategories);
-    // You can perform further actions like sending the data to a server here
   };
 
   return (
@@ -123,76 +110,10 @@ export default function SinglePost() {
           <p className="singlePostDesc">{desc}</p>
         )}
         {updateMode ? (
-          // need a checkbox component
-          <form className="singlePostCategories" onSubmit={handleSubmit}>
-            <fieldset>
-              <legend>Choose categories:</legend>
-              <label>
-                <input
-                  type="checkbox"
-                  value="music"
-                  onChange={handleChange}
-                  checked={selectedCategories.includes("music")}
-                />
-                Music
-              </label>
-              <label>
-                <input
-                  type="checkbox"
-                  value="tech"
-                  onChange={handleChange}
-                  checked={selectedCategories.includes("tech")}
-                />
-                Tech
-              </label>
-              <label>
-                <input
-                  type="checkbox"
-                  value="diy"
-                  onChange={handleChange}
-                  checked={selectedCategories.includes("diy")}
-                />
-                DIY
-              </label>
-              <label>
-                <input
-                  type="checkbox"
-                  value="health"
-                  onChange={handleChange}
-                  checked={selectedCategories.includes("health")}
-                />
-                Health
-              </label>
-              <label>
-                <input
-                  type="checkbox"
-                  value="fashion"
-                  onChange={handleChange}
-                  checked={selectedCategories.includes("fashion")}
-                />
-                Fashion
-              </label>
-              <label>
-                <input
-                  type="checkbox"
-                  value="economy"
-                  onChange={handleChange}
-                  checked={selectedCategories.includes("economy")}
-                />
-                Economy
-              </label>
-              <label>
-                <input
-                  type="checkbox"
-                  value="activism"
-                  onChange={handleChange}
-                  checked={selectedCategories.includes("activism")}
-                />
-                Activism
-              </label>
-            </fieldset>
-            <button type="submit">Submit</button>
-          </form>
+          <CategoriesForm
+            selectedCategories={selectedCategories}
+            setSelectedCategories={setSelectedCategories}
+          />
         ) : (
           <div className="singlePostCategories">
             {categories.map((category) => (

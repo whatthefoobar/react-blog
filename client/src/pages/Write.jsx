@@ -1,11 +1,13 @@
 import { useContext, useState } from "react";
 import axios from "axios";
 import { Context } from "../context/Context";
+import CategoriesForm from "../components/CategoriesForm";
 
 export default function Write() {
   const [title, setTitle] = useState("");
   const [desc, setDesc] = useState("");
   const [file, setFile] = useState(null);
+  const [selectedCategories, setSelectedCategories] = useState([]);
   const { user } = useContext(Context);
 
   const handleSubmit = async (e) => {
@@ -14,6 +16,7 @@ export default function Write() {
       username: user.username,
       title,
       desc,
+      categories: selectedCategories,
     };
     if (file) {
       console.log("there is a file", file);
@@ -71,6 +74,12 @@ export default function Write() {
             className="writeInput writeText"
             onChange={(e) => setDesc(e.target.value)}
           ></textarea>
+        </div>
+        <div className="writeFormGroup">
+          <CategoriesForm
+            selectedCategories={selectedCategories}
+            setSelectedCategories={setSelectedCategories}
+          />
         </div>
         <button className="writeSubmit" type="submit">
           Publish

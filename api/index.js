@@ -23,10 +23,7 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 connectDB();
-// const imgPath = path.join(__dirname, "/images");
-// console.log(path.join(__dirname, "/images"));
 
-// const storage = diskStorage({
 //   destination: (req, file, cb) => {
 //     cb(null, "images");
 //   },
