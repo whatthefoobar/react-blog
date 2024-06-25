@@ -1,3 +1,4 @@
+import path from "path";
 import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
@@ -6,7 +7,6 @@ import userRoute from "./routes/users.js";
 import postRoute from "./routes/posts.js";
 import categoryRoute from "./routes/categories.js";
 import uploadRoute from "./routes/upload.js";
-import path from "path";
 import connectDB from "./config/db.js";
 
 const app = express();
@@ -46,8 +46,13 @@ connectDB();
 //   res.status(200).json("File has been uploaded");
 // });
 
+app.use("/api/auth", authRoute);
+app.use("/api/users", userRoute);
+app.use("/api/posts", postRoute);
+app.use("/api/categories", categoryRoute);
+app.use("/api/upload", uploadRoute);
+
 const __dirname = path.resolve();
-// console.log(path.join(__dirname, "/images"));
 app.use("/images", express.static(path.join(__dirname, "/images")));
 
 if (process.env.NODE_ENV === "production") {
@@ -61,12 +66,6 @@ if (process.env.NODE_ENV === "production") {
     res.send("API is running....");
   });
 }
-
-app.use("/api/auth", authRoute);
-app.use("/api/users", userRoute);
-app.use("/api/posts", postRoute);
-app.use("/api/categories", categoryRoute);
-app.use("/api/upload", uploadRoute);
 
 const port = process.env.PORT || 5000;
 app.listen(port, () => {

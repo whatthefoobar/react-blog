@@ -16,20 +16,21 @@ export default function Write() {
       desc,
     };
     if (file) {
-      // if there is an img uploaded send it to multer and then mongodb
-      console.log("file:", file);
+      console.log("there is a file", file);
       const data = new FormData();
-      const filename = Date.now() + file.name;
-      data.append("name", filename);
       data.append("file", file);
-      newPost.photo = filename;
+
       try {
-        await axios.post("/api/upload", data);
+        const uploadRes = await axios.post("/api/upload", data);
+        console.log("response", uploadRes);
+        const imagePath = uploadRes.data.image;
+        newPost.photo = imagePath;
+        console.log(newPost.photo);
       } catch (err) {
         console.log(err);
       }
     }
-
+    console.log("new post:", newPost);
     try {
       const res = await axios.post("/api/posts", newPost);
       window.location.replace("/post/" + res.data._id);
@@ -37,13 +38,9 @@ export default function Write() {
       console.log(err);
     }
   };
-  if (file) {
-    console.log("file:", file);
-  }
 
   return (
     <div className="write">
-      {/* the image preview */}
       {file && (
         <img className="writeImg" src={URL.createObjectURL(file)} alt="" />
       )}
