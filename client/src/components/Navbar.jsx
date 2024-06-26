@@ -44,7 +44,7 @@ export default function Navbar() {
     <nav className="nav-bar">
       <div className="nav-bar__content">
         <Link to="/" className="nav-bar__content__logo">
-          Logo
+          No Planet B
         </Link>
         <nav
           className={`nav-bar__content__nav ${
