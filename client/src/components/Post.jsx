@@ -27,6 +27,16 @@ export default function Post({ post }) {
         </div>
 
         <p className="postDesc">{post.desc}</p>
+        <div className="categoryWrapper">
+          <div>Tags:</div>
+          <div className="postCategories">
+            {post.categories.map((category, index) => (
+              <p key={index} className="postCategory">
+                {category}
+              </p>
+            ))}
+          </div>
+        </div>
       </div>
     </Link>
   );
