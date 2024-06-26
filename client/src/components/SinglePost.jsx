@@ -122,9 +122,17 @@ export default function SinglePost() {
           </div>
         )}
         {updateMode && (
-          <button className="singlePostButton" onClick={handleUpdate}>
-            Update
-          </button>
+          <div className="actionButtons">
+            <button className="singlePostButton edit" onClick={handleUpdate}>
+              Update
+            </button>
+            <button
+              className="singlePostButton cancel"
+              onClick={() => setUpdateMode(false)}
+            >
+              Cancel
+            </button>
+          </div>
         )}
       </div>
     </div>

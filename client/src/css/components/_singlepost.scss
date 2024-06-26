@@ -101,14 +101,26 @@
 .singlePostDescInput:focus {
   outline: none;
 }
+.actionButtons {
+  display: flex;
+  gap: 30px;
+}
 .singlePostButton {
   width: 100px;
   border: none;
-  background-color: teal;
   padding: 5px;
-  color: white;
   border-radius: 5px;
   cursor: pointer;
   align-self: flex-end;
   margin-top: 20px;
+}
+
+.edit {
+  background-color: teal;
+  color: white;
+}
+
+.cancel {
+  background-color: lightcoral;
+  color: white;
 }
