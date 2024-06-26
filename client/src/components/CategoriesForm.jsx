@@ -23,7 +23,7 @@ const CategoriesForm = ({ selectedCategories, setSelectedCategories }) => {
   };
 
   return (
-    <fieldset>
+    <fieldset className="categoryForm">
       <legend>Choose categories:</legend>
       {categoriesList.map((category) => (
         <label key={category}>

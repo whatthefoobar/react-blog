@@ -1,0 +1,13 @@
+.categoryForm {
+  border: none;
+  display: flex;
+  gap: 10px;
+
+  & legend {
+    margin-bottom: 12px;
+  }
+  & label {
+    display: flex;
+    gap: 2px;
+  }
+}

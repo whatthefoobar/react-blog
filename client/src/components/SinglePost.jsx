@@ -116,6 +116,7 @@ export default function SinglePost() {
           />
         ) : (
           <div className="singlePostCategories">
+            Tags:
             {categories.map((category) => (
               <div key={generateRandomKey(10)}>{category}</div>
             ))}
