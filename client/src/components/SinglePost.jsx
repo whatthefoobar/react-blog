@@ -28,6 +28,7 @@ export default function SinglePost() {
       setTitle(res.data.title);
       setDesc(res.data.desc);
       setCategories(res.data.categories);
+      setSelectedCategories(res.data.categories);
     };
     getPost();
   }, [postId]);
@@ -51,6 +52,7 @@ export default function SinglePost() {
         desc,
         categories: selectedCategories,
       });
+      setCategories(selectedCategories);
       setUpdateMode(false);
     } catch (err) {
       console.log(err);
