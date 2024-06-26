@@ -16,7 +16,9 @@ export default function SinglePost() {
   const [title, setTitle] = useState("");
   const [desc, setDesc] = useState("");
   const [updateMode, setUpdateMode] = useState(false);
+  //coming from the db
   const [categories, setCategories] = useState([]);
+  //selected from form
   const [selectedCategories, setSelectedCategories] = useState([]);
 
   useEffect(() => {
