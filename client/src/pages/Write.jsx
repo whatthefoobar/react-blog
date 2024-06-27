@@ -19,7 +19,6 @@ export default function Write() {
       categories: selectedCategories,
     };
     if (file) {
-      console.log("there is a file", file);
       const data = new FormData();
       data.append("file", file);
 

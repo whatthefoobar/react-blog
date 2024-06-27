@@ -18,6 +18,7 @@ const Posts = ({ posts }) => {
       setLoading(false); // Set loading to false even on error to avoid infinite loading state
     }
   };
+
   useEffect(() => {
     getCats();
   }, []);

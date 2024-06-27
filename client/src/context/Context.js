@@ -7,17 +7,6 @@ const INITIAL_STATE = {
   error: false,
 };
 
-// example user from localStorage:
-// {
-//     "_id": "6670627e0676564bf84e4da7",
-//     "username": "jane",
-//     "email": "jane@example.com",
-//     "profilePic": "11.jpeg",
-//     "createdAt": "2024-06-17T16:21:18.922Z",
-//     "updatedAt": "2024-06-17T16:23:43.614Z",
-//     "__v": 0
-// }
-
 export const Context = createContext(INITIAL_STATE);
 
 export const ContextProvider = ({ children }) => {

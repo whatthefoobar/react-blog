@@ -10,13 +10,17 @@ const Pagination = ({
     pages.push(i);
   }
 
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+  };
+
   return (
     <div className="pagination">
       {pages.map((page, index) => {
         return (
           <button
             key={index}
-            onClick={() => setCurrentPage(page)}
+            onClick={() => handlePageChange(page)}
             className={page === currentPage ? "active" : ""}
           >
             {page}

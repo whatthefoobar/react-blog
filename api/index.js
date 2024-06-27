@@ -24,25 +24,6 @@ app.use(cors(corsOptions));
 
 connectDB();
 
-//   destination: (req, file, cb) => {
-//     cb(null, "images");
-//   },
-//   filename: (req, file, cb) => {
-//     console.log(file);
-//     cb(
-//       null,
-//       `${Date.now()}${path.extname(file.originalname)}`
-//       // `${file.fieldname}-${Date.now()}${path.extname(file.originalname)}`
-//     );
-//   },
-// });
-
-// const upload = multer({ storage: storage });
-
-// app.post("/api/upload", upload.single("file"), (req, res) => {
-//   res.status(200).json("File has been uploaded");
-// });
-
 app.use("/api/auth", authRoute);
 app.use("/api/users", userRoute);
 app.use("/api/posts", postRoute);

@@ -36,8 +36,8 @@
   white-space: nowrap; /* Prevents text from wrapping to the next line */
   overflow: hidden; /* Ensures any overflow text is hidden */
   text-overflow: ellipsis; /* Adds ellipsis when text overflows */
-  display: block; /* Ensures the element behaves as a block-level element */
-  max-width: 100%; /* Ensures the title respects the width of its container */
+  display: block; /* Element behaves as a block-level element */
+  max-width: 100%; /* Title doesn't go over the width or wrap */
 }
 
 .subTitle {
