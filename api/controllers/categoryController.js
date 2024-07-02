@@ -1,5 +1,5 @@
+import asyncHandler from "../middleware/asyncHandler.js";
 import Category from "../models/Category.js";
-import asyncHandler from "express-async-handler"; // Assuming you are using this package
 
 // @desc    Create a new category
 // @route   POST /api/categories

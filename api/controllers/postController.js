@@ -1,5 +1,5 @@
+import asyncHandler from "../middleware/asyncHandler.js";
 import Post from "../models/Post.js";
-import asyncHandler from "express-async-handler"; // Assuming you are using this package
 
 // @desc    Create a new post
 // @route   POST /api/posts

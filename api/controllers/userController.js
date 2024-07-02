@@ -1,7 +1,7 @@
+import asyncHandler from "../middleware/asyncHandler.js";
 import User from "../models/User.js";
 import generateToken from "../utils/generateToken.js";
 import { genSalt, hash, compare } from "bcrypt";
-import asyncHandler from "express-async-handler"; // Assuming you are using this package
 
 // @desc    Register a new user
 // @route   POST /api/users/register

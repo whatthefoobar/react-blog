@@ -1,6 +1,6 @@
 import express from "express";
 const router = express.Router();
-import { protect } from "../middleware/authMiddleware.js";
+
 import {
   createPost,
   updatePost,
@@ -8,6 +8,7 @@ import {
   getPostById,
   getAllPosts,
 } from "../controllers/postController.js";
+import { protect } from "../middleware/authMidleware.js";
 
 // @route /api/posts
 router.post("/", protect, createPost);
