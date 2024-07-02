@@ -8,17 +8,19 @@ import {
   getUserById,
   deleteUser,
   updateUser,
+  getAllUsers,
 } from "../controllers/userController.js";
 import { protect } from "../middleware/authMidleware.js";
 
 ///api/users
-router.post("/register", registerUser);
-router.post("/login", loginUser);
-router.post("/logout", logoutUser);
+router.get("/", getAllUsers); //works
+router.post("/register", registerUser); //works
+router.post("/login", loginUser); //works
+router.post("/logout", logoutUser); //works
 router
   .route("/:id")
   .delete(protect, deleteUser)
-  .get(protect, getUserById)
+  .get(protect, getUserById) // works
   .put(protect, updateUser);
 
 export default router;

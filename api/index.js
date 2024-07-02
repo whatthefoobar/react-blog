@@ -1,5 +1,6 @@
 import path from "path";
 import express from "express";
+import cookieParser from "cookie-parser";
 import dotenv from "dotenv";
 import cors from "cors";
 import userRoute from "./routes/users.js";
@@ -12,6 +13,9 @@ const app = express();
 dotenv.config();
 
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser());
+
 const corsOptions = {
   origin: ["http://localhost:5000"], // Allow requests from this origin "https://react-blog-1s9g.onrender.com/",
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE", // Allow specified HTTP methods
