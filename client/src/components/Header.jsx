@@ -18,7 +18,7 @@ export default function Header() {
               </p>
               <div className="btn-box">
                 <Link
-                  to="/post/6679584ecbd5cf5c40b22dbf"
+                  to="/post/6683e409671485e8f2359c91"
                   className="cta-btn try"
                 >
                   Start here
