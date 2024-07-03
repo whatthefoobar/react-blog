@@ -28,7 +28,7 @@ const posts = [
     categories: ["economy", "health"],
   },
   {
-    title: "Eco beauty products",
+    title: "Eco beauty POSTS",
     desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Pariatur reprehenderit officiis officia, blanditiis voluptate at et fuga, aspernatur non sequi quis hic nesciunt! Consequuntur quisquam hic atque quasi ratione doloribus repellat expedita, minima provident, iusto quos ipsum alias voluptates qui explicabo earum obcaecati tempora dolores quae! Porro, saepe officia qui minima at similique assumenda architecto debitis neque vitae libero laboriosam natus soluta. Iure voluptatum inventore totam consequatur neque. Iure error magni eligendi ratione accusamus? Rerum ipsa culpa eaque, impedit fugiat reiciendis aliquam sit sint voluptate perferendis maxime hic libero harum distinctio? Voluptatibus maiores ipsam labore accusamus dolore. Itaque, esse incidunt.",
     photo: "/images/5.jpg",
     username: "john",

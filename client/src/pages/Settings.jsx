@@ -5,20 +5,14 @@ import Sidebar from "../components/Sidebar";
 
 export default function Settings() {
   const { user, dispatch } = useContext(Context);
-
+  console.log("user from context", user);
   const [file, setFile] = useState(null);
   const [username, setUsername] = useState(user.username);
   const [email, setEmail] = useState(user.email);
   const [password, setPassword] = useState("");
   const [success, setSuccess] = useState(false);
 
-  // const publicFolder = "/images/";
-
-  // when we create a user it gets this image as a profile img
-  const defaultImg = "/images/defaultUserImg.jpg";
-
-  const profileImg = user ? user.profilePic : defaultImg;
-  const imgSrc = file ? URL.createObjectURL(file) : profileImg;
+  const imgSrc = file ? URL.createObjectURL(file) : user.profilePic;
 
   const handleSubmit = async (e) => {
     e.preventDefault();

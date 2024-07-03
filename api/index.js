@@ -33,7 +33,7 @@ app.use("/api/posts", postRoutes);
 app.use("/api/categories", categoryRoutes);
 app.use("/api/upload", uploadRoutes);
 
-// app.use(notFound); // why does commenting this one out makes my img src not found?
+app.use(notFound); // why does commenting this one out makes my img src not found?
 app.use(errorHandler);
 
 const __dirname = path.resolve();

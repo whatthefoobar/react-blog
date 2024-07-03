@@ -91,6 +91,7 @@ const updateUser = asyncHandler(async (req, res) => {
         _id: updatedUser._id,
         username: updatedUser.username,
         email: updatedUser.email,
+        profilePic: updatedUser.profilePic,
         isAdmin: updatedUser.isAdmin,
       });
     } else {

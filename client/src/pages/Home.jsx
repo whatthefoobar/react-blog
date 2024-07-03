@@ -1,55 +1,45 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import Posts from "../components/Posts";
-import axios from "axios";
 import { useLocation, useNavigate } from "react-router-dom";
 import Header from "../components/Header";
 import Pagination from "../components/Pagination";
+import { useGetPostsQuery } from "../slices/postsApiSlice";
 
 export default function Home() {
-  const [posts, setPosts] = useState([]);
+  const { data: blogPosts, isLoading, error } = useGetPostsQuery({});
   const [filteredPosts, setFilteredPosts] = useState([]);
-  const { search } = useLocation(); // ?page=1 , ?cat=fashion, ?cat=economy&page=2
+  const { search } = useLocation();
   const navigate = useNavigate();
-  const [loading, setLoading] = useState(true);
-  const queryParams = new URLSearchParams(search); // shows how many params if category and page shows 2
+
+  const queryParams = useMemo(() => new URLSearchParams(search), [search]);
 
   const pageFromUrl = queryParams.get("page")
     ? parseInt(queryParams.get("page"))
     : 1;
+  const categoryFromUrl = queryParams.get("cat");
   const [currentPage, setCurrentPage] = useState(pageFromUrl);
 
   useEffect(() => {
-    const fetchPosts = async () => {
-      try {
-        const res = await axios.get("/api/posts");
-        setPosts(res.data);
-        setLoading(false);
-      } catch (error) {
-        console.error("Error fetching posts:", error);
-        setLoading(false); // Set loading to false even on error to avoid infinite loading state
-      }
-    };
-    fetchPosts();
-  }, []);
+    if (blogPosts) {
+      const filteredPosts = categoryFromUrl
+        ? blogPosts.filter((post) => post.categories.includes(categoryFromUrl))
+        : blogPosts;
 
-  // if there is a category filter posts by it
-  //q params set by Link to={`/?cat=${c.name}`} of the buttons
-  useEffect(() => {
-    const category = queryParams.get("cat");
-    const filteredPosts = category
-      ? posts.filter((post) => post.categories.includes(category))
-      : posts;
-
-    setFilteredPosts(filteredPosts);
-    setCurrentPage(pageFromUrl); // Set to the page number from URL
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [search, posts]);
+      setFilteredPosts(filteredPosts);
+    }
+  }, [search, blogPosts, queryParams, categoryFromUrl]);
 
   useEffect(() => {
-    queryParams.set("page", currentPage);
-    navigate({ search: queryParams.toString() }, { replace: true });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [currentPage, navigate]);
+    if (currentPage !== pageFromUrl) {
+      queryParams.set("page", currentPage);
+      navigate({ search: queryParams.toString() }, { replace: true });
+    }
+  }, [currentPage, pageFromUrl, navigate, queryParams]);
+
+  // Reset currentPage to 1 when the category changes
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [categoryFromUrl]);
 
   const postsPerPage = 8;
   const lastPostIndex = currentPage * postsPerPage;
@@ -60,8 +50,10 @@ export default function Home() {
     <>
       <Header />
       <h3 className="home__title">All blog posts</h3>
-      {loading ? (
+      {isLoading ? (
         <div className="loading">Loading posts...</div>
+      ) : error ? (
+        <div className="error">Error loading posts: {error.message}</div>
       ) : (
         <div className="home">
           {filteredPosts.length !== 0 && Array.isArray(currentPosts) ? (
