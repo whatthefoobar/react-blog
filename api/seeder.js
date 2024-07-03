@@ -50,4 +50,4 @@ if (process.argv[2] === "-d") {
   importData();
 }
 
-// seed with node seeder.js / node seeder.js -d
+// seed with node api/seeder.js / node api/seeder.js -d

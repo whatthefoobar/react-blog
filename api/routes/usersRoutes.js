@@ -10,7 +10,7 @@ import {
   updateUser,
   getAllUsers,
 } from "../controllers/userController.js";
-import { protect } from "../middleware/authMidleware.js";
+import { protect } from "../middleware/authMiddleware.js";
 
 ///api/users
 router.get("/", getAllUsers); //works

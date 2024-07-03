@@ -5,7 +5,7 @@ import {
   createCategory,
   getAllCategories,
 } from "../controllers/categoryController.js";
-import { protect } from "../middleware/authMidleware.js";
+import { protect } from "../middleware/authMiddleware.js";
 
 // @route   POST /api/categories
 router.post("/", protect, createCategory);

@@ -40,6 +40,7 @@ const registerUser = asyncHandler(async (req, res) => {
 // @access  Public
 const loginUser = asyncHandler(async (req, res) => {
   const { username, password } = req.body;
+  // console.log("req.originalUrl:", req.originalUrl);
 
   const user = await User.findOne({ username });
 

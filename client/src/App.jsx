@@ -9,6 +9,7 @@ import About from "./pages/About";
 import { useContext } from "react";
 import { Context } from "./context/Context.js";
 import Navbar from "./components/Navbar";
+import NotFound from "./pages/NotFound.jsx";
 
 function App() {
   const { user } = useContext(Context);
@@ -24,6 +25,7 @@ function App() {
         <Route path="/write" element={user ? <Write /> : <Login />} />
         <Route path="/settings" element={user ? <Settings /> : <Register />} />
         <Route path="/post/:postId" element={<Single />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>
   );

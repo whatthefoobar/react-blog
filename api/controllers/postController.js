@@ -5,13 +5,15 @@ import Post from "../models/Post.js";
 // @route   POST /api/posts
 // @access  Private
 const createPost = asyncHandler(async (req, res) => {
-  const newPost = new Post(req.body);
+  console.log("req.originalUrl", req.originalUrl);
+  console.log("Create Post Request Body:", req.body);
+  const newPost = new Post({ ...req.body, username: req.user.username });
   try {
     const savedPost = await newPost.save();
-    res.status(200).json(savedPost);
+    res.status(201).json(savedPost);
   } catch (err) {
-    res.status(500);
-    throw new Error(err.message);
+    console.error("Error saving post:", err.message);
+    res.status(500).json({ message: err.message });
   }
 });
 
@@ -21,7 +23,7 @@ const createPost = asyncHandler(async (req, res) => {
 const updatePost = asyncHandler(async (req, res) => {
   try {
     const post = await Post.findById(req.params.id);
-    if (post.username === req.body.username) {
+    if (post.username === req.user.username || req.user.isAdmin) {
       try {
         const updatedPost = await Post.findByIdAndUpdate(
           req.params.id,
@@ -37,7 +39,9 @@ const updatePost = asyncHandler(async (req, res) => {
       }
     } else {
       res.status(401);
-      throw new Error("You can only update your post!");
+      throw new Error(
+        "You can only update your own post or you need to be an admin!"
+      );
     }
   } catch (err) {
     res.status(500);
@@ -57,12 +61,14 @@ const deletePost = asyncHandler(async (req, res) => {
       throw new Error("Post not found");
     }
 
-    if (post.username === req.body.username) {
-      await Post.findByIdAndRemove(req.params.id);
+    if (post.username === req.user.username || req.user.isAdmin) {
+      await Post.deleteOne({ _id: post._id });
       res.status(200).json("Post has been deleted...");
     } else {
       res.status(401);
-      throw new Error("You can only delete your post!");
+      throw new Error(
+        "You can only delete your own post or you need to be an admin!"
+      );
     }
   } catch (err) {
     res.status(500);
@@ -78,8 +84,8 @@ const getPostById = asyncHandler(async (req, res) => {
     const post = await Post.findById(req.params.id);
     res.status(200).json(post);
   } catch (err) {
-    res.status(500);
-    throw new Error(err.message);
+    res.status(404);
+    throw new Error("Product not found.");
   }
 });
 

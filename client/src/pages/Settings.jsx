@@ -16,6 +16,7 @@ export default function Settings() {
 
   // when we create a user it gets this image as a profile img
   const defaultImg = "/images/defaultUserImg.jpg";
+
   const profileImg = user ? user.profilePic : defaultImg;
   const imgSrc = file ? URL.createObjectURL(file) : profileImg;
 
@@ -50,6 +51,11 @@ export default function Settings() {
     }
   };
 
+  if (user) {
+    console.log(user, user.profilePic);
+  } else {
+    console.log("no user");
+  }
   return (
     <div className="settings">
       <div className="settingsWrapper">
