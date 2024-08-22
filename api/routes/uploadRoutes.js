@@ -34,19 +34,23 @@ const upload = multer({
 const uploadSingleImage = upload.single("file");
 
 // Upload endpoint
+
 router.post("/", (req, res) => {
-  console.log("req:", req);
   uploadSingleImage(req, res, function (err) {
+    // console.log("req.file:", req.file); // Log the req.file object
+
     if (!req.file) {
+      console.error("No file received");
       return res.status(400).send({ message: "No file uploaded" });
     }
     if (err) {
-      res.status(400).send({ message: err.message });
+      console.error("Multer error:", err);
+      return res.status(400).send({ message: err.message });
     }
 
     res.status(200).send({
       message: "Image uploaded successfully",
-      image: `/${req.file.path}`,
+      image: `${req.file.path}`,
     });
   });
 });

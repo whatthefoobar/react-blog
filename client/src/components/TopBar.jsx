@@ -56,8 +56,8 @@ export default function TopBar() {
             <img
               className="topImg"
               src={
-                user.profilePic
-                  ? publicFolder + user.profilePic
+                user.image
+                  ? publicFolder + user.image
                   : "https://images.pexels.com/photos/4132327/pexels-photo-4132327.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
               }
               alt="user profile"

@@ -51,6 +51,7 @@ const loginUser = asyncHandler(async (req, res) => {
       _id: user._id,
       username: user.username,
       email: user.email,
+      image: user.image,
       isAdmin: user.isAdmin,
     });
   } else {
@@ -70,6 +71,8 @@ const logoutUser = (req, res) => {
   res.status(200).json({ message: "Logged out successfully" });
 };
 
+//get user details
+
 // @desc    Update user
 // @route   PUT /api/users/:id
 // @access  Private
@@ -85,13 +88,17 @@ const updateUser = asyncHandler(async (req, res) => {
         user.password = req.body.password;
       }
 
+      if (req.body.image) {
+        user.image = req.body.image; // Ensure this line exists and works
+      }
+
       const updatedUser = await user.save();
 
       res.json({
         _id: updatedUser._id,
         username: updatedUser.username,
         email: updatedUser.email,
-        profilePic: updatedUser.profilePic,
+        image: updatedUser.image,
         isAdmin: updatedUser.isAdmin,
       });
     } else {

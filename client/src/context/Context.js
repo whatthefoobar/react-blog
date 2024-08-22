@@ -14,6 +14,8 @@ export const ContextProvider = ({ children }) => {
   const { user, isFetching, error } = state;
 
   useEffect(() => {
+    console.log(user);
+
     localStorage.setItem("user", JSON.stringify(user));
   }, [user]);
 

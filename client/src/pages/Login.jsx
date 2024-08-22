@@ -1,28 +1,36 @@
-import axios from "axios";
-import { useContext, useRef, useState } from "react";
-import { Link } from "react-router-dom";
-import { Context } from "../context/Context";
+import { useRef } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useLoginMutation } from "../slices/usersApiSlice";
+import { useDispatch } from "react-redux";
+import { setCredentials } from "../slices/authSlice";
+import { toast } from "react-toastify";
 
 export default function Login() {
-  const [showError, setShowError] = useState(false);
+  const [login, { isLoading }] = useLoginMutation();
   const userRef = useRef();
   const passwordRef = useRef();
-  const { dispatch, isFetching } = useContext(Context);
+
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const { search } = useLocation();
+  const sp = new URLSearchParams(search);
+  const redirect = sp.get("redirect") || "/";
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    dispatch({ type: "LOGIN_START" });
     try {
-      const res = await axios.post("/api/users/login", {
+      // post to /api/users
+      const res = await login({
         username: userRef.current.value,
         password: passwordRef.current.value,
-      });
-      dispatch({ type: "LOGIN_SUCCESS", payload: res.data });
+      }).unwrap();
+      //set to local storage
+      dispatch(setCredentials({ ...res }));
+      navigate(redirect);
     } catch (err) {
-      dispatch({ type: "LOGIN_FAILURE" });
-      if (err.response.status) {
-        setShowError(true);
-      }
+      console.log(err);
+      toast.error(err?.data?.message || err.error);
     }
   };
 
@@ -44,19 +52,17 @@ export default function Login() {
           placeholder="Enter your password..."
           ref={passwordRef}
         />
-        <button className="loginButton" type="submit" disabled={isFetching}>
+        <button disabled={isLoading} className="loginButton" type="submit">
           Login
         </button>
       </form>
-      {showError && (
-        <span style={{ color: "red", marginTop: "10px" }}>
-          Check your username and password.
-        </span>
-      )}
       <div className="registerOption">
         <p>Don&apos;t have an account?</p>
 
-        <Link className="link link-hover" to="/register">
+        <Link
+          className="link link-hover"
+          to={redirect ? `/register?redirect=${redirect}` : "/register"}
+        >
           Register here.
         </Link>
       </div>
