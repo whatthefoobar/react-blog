@@ -10,6 +10,8 @@ import { toast } from "react-toastify";
 
 export default function Settings() {
   const userDetails = useSelector((state) => state.auth.userInfo);
+  console.log("userDetails from state", userDetails.image);
+
   const [updateUser, { isLoading }] = useUpdateUserMutation();
   const [uploadUserImage] = useUploadUserImageMutation();
   const dispatch = useDispatch();
@@ -18,6 +20,11 @@ export default function Settings() {
   const [email, setEmail] = useState(userDetails?.email || "");
   const [password, setPassword] = useState("");
   const [file, setFile] = useState(null);
+
+  if (!userDetails) {
+    // Handle the case when userDetails is null
+    return <div>Please log in to access settings.</div>;
+  }
 
   const imgSrc = file ? URL.createObjectURL(file) : `${userDetails.image}`;
 
