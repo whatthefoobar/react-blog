@@ -1,5 +1,5 @@
 // import '../css/components/singlepost.css';
-import axios from "axios";
+import axiosInstance from "../axiosInstance";
 import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
@@ -23,7 +23,9 @@ export default function SinglePost() {
 
   useEffect(() => {
     const getPost = async () => {
-      const res = await axios.get("/api/posts/" + postId);
+      const res = await axiosInstance.get(
+        `${process.env.REACT_APP_API_URL}/api/posts/${postId}`
+      );
       console.log("individual post:", res.data);
       // we have a res.data.categories array
       setPost(res.data);
@@ -37,9 +39,12 @@ export default function SinglePost() {
 
   const handleDelete = async () => {
     try {
-      await axios.delete(`/api/posts/${post._id}`, {
-        data: { username: user.username },
-      });
+      await axiosInstance.delete(
+        `${process.env.REACT_APP_API_URL}/api/posts/${post._id}`,
+        {
+          data: { username: user.username },
+        }
+      );
       window.location.replace("/");
     } catch (err) {
       console.log(err);
@@ -48,12 +53,15 @@ export default function SinglePost() {
 
   const handleUpdate = async () => {
     try {
-      await axios.put(`/api/posts/${post._id}`, {
-        username: user.username,
-        title,
-        desc,
-        categories: selectedCategories,
-      });
+      await axiosInstance.put(
+        `${process.env.REACT_APP_API_URL}/api/posts/${post._id}`,
+        {
+          username: user.username,
+          title,
+          desc,
+          categories: selectedCategories,
+        }
+      );
       setCategories(selectedCategories);
       setUpdateMode(false);
     } catch (err) {

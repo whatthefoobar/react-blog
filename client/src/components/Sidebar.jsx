@@ -1,4 +1,5 @@
 import axios from "axios";
+import axiosInstance from "../axiosInstance";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -8,7 +9,9 @@ const Sidebar = () => {
 
   const getCats = async () => {
     try {
-      const res = await axios.get("/api/categories");
+      const res = await axiosInstance.get(
+        `${process.env.REACT_APP_API_URL}/api/categories`
+      );
       setCats(res.data);
       setLoading(false);
     } catch (error) {

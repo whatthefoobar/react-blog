@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Posts from "../components/Posts";
-import axios from "axios";
+import axiosInstance from "../axiosInstance";
 import { useLocation, useNavigate } from "react-router-dom";
 import Header from "../components/Header";
 import Pagination from "../components/Pagination";
@@ -20,7 +20,9 @@ export default function Home() {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const res = await axios.get("/api/posts");
+        const res = await axiosInstance.get(
+          `${process.env.REACT_APP_API_URL}/api/posts/`
+        );
         setPosts(res.data);
         setLoading(false);
       } catch (error) {

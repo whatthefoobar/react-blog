@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import axios from "axios";
+import axiosInstance from "../axiosInstance";
 import { Context } from "../context/Context";
 import CategoriesForm from "../components/CategoriesForm";
 
@@ -23,7 +23,10 @@ export default function Write() {
       data.append("file", file);
 
       try {
-        const uploadRes = await axios.post("/api/upload", data);
+        const uploadRes = await axiosInstance.post(
+          `${process.env.REACT_APP_API_URL}/api/upload`,
+          data
+        );
         console.log("response", uploadRes);
         const imagePath = uploadRes.data.image;
         newPost.photo = imagePath;
@@ -34,7 +37,10 @@ export default function Write() {
     }
     console.log("new post:", newPost);
     try {
-      const res = await axios.post("/api/posts", newPost);
+      const res = await axiosInstance.post(
+        `${process.env.REACT_APP_API_URL}/api/posts"`,
+        newPost
+      );
       window.location.replace("/post/" + res.data._id);
     } catch (err) {
       console.log(err);

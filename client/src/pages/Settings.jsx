@@ -1,4 +1,4 @@
-import axios from "axios";
+import axiosInstance from "../axiosInstance";
 import { useContext, useState } from "react";
 import { Context } from "../context/Context";
 import Sidebar from "../components/Sidebar";
@@ -36,13 +36,19 @@ export default function Settings() {
       data.append("file", file);
       updatedUser.profilePic = filename;
       try {
-        await axios.post("/api/upload", data);
+        await axiosInstance.post(
+          `${process.env.REACT_APP_API_URL}/api/upload`,
+          data
+        );
       } catch (err) {
         console.log(err);
       }
     }
     try {
-      const res = await axios.put("/api/users/" + user._id, updatedUser);
+      const res = await axiosInstance.put(
+        `${process.env.REACT_APP_API_URL}/api/users/${user._id}`,
+        updatedUser
+      );
       setSuccess(true);
       dispatch({ type: "UPDATE_SUCCESS", payload: res.data });
     } catch (err) {

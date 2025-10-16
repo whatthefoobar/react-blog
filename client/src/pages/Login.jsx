@@ -1,4 +1,4 @@
-import axios from "axios";
+import axiosInstance from "../axiosInstance";
 import { useContext, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../context/Context";
@@ -13,10 +13,13 @@ export default function Login() {
     e.preventDefault();
     dispatch({ type: "LOGIN_START" });
     try {
-      const res = await axios.post("/api/auth/login", {
-        username: userRef.current.value,
-        password: passwordRef.current.value,
-      });
+      const res = await axiosInstance.post(
+        `${process.env.REACT_APP_API_URL}/api/auth/login`,
+        {
+          username: userRef.current.value,
+          password: passwordRef.current.value,
+        }
+      );
       dispatch({ type: "LOGIN_SUCCESS", payload: res.data });
     } catch (err) {
       dispatch({ type: "LOGIN_FAILURE" });
