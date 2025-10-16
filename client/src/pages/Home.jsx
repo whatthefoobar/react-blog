@@ -41,12 +41,12 @@ export default function Home() {
 
     setFilteredPosts(filteredPosts);
     setCurrentPage(pageFromUrl); // Set to the page number from URL
-  }, [search, posts]);
+  }, [search, posts, pageFromUrl, queryParams]);
 
   useEffect(() => {
     queryParams.set("page", currentPage);
     navigate({ search: queryParams.toString() }, { replace: true });
-  }, [currentPage, navigate]);
+  }, [currentPage, navigate, queryParams]);
 
   const postsPerPage = 8;
   const lastPostIndex = currentPage * postsPerPage;
