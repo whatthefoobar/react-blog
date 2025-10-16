@@ -9,12 +9,12 @@
     "server": "nodemon api/index.js",
     "client": "npm run start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "build": "npm install && cd client && npm install && npm run build",
+    "build": "cd client && npm run build",
     "seed": "node api/seeder.js"
   },
   "engines": {
-  "node": ">=18.0.0"
-},
+    "node": ">=18.0.0"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
