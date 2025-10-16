@@ -32,9 +32,7 @@ export default function Home() {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const res = await axiosInstance.get(
-          `${process.env.REACT_APP_API_URL}/api/posts/`
-        );
+        const res = await axiosInstance.get(`/api/posts/`);
         setPosts(res.data);
       } catch (error) {
         console.error("Error fetching posts:", error);
