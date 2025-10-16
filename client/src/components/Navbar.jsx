@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Context } from "../context/Context";
 import { BiMenuAltRight } from "react-icons/bi";
 import { AiOutlineClose } from "react-icons/ai";
+import axiosInstance from "../axiosInstance";
 
 export default function Navbar() {
   const { user, dispatch } = useContext(Context);
@@ -70,8 +71,8 @@ export default function Navbar() {
                   className="topImg"
                   src={
                     user.profilePic
-                      ? `${process.env.PUBLIC_URL}${user.profilePic}`
-                      : `${process.env.PUBLIC_URL}/images/defaultUserImg.jpg`
+                      ? `${axiosInstance.defaults.baseURL}${user.profilePic}`
+                      : `${axiosInstance.defaults.baseURL}/images/defaultUserImg.jpg`
                   }
                   alt="user profile"
                 />

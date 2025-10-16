@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import generateRandomKey from "../util/generateRandomKey"; // not pretty but it'll do for now
+import axiosInstance from "../axiosInstance";
 
 export default function Post({ post }) {
   return (
@@ -8,7 +9,7 @@ export default function Post({ post }) {
         {post.photo && (
           <img
             className="postImg"
-            src={`${process.env.PUBLIC_URL}${post.photo}`}
+            src={`${axiosInstance.defaults.baseURL}${post.photo}`}
             alt="blog post"
           />
         )}

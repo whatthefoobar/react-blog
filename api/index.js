@@ -31,7 +31,7 @@ app.use("/api/categories", categoryRoute);
 app.use("/api/upload", uploadRoute);
 
 const __dirname = path.resolve();
-app.use("/images", express.static(path.join(__dirname, "/images")));
+app.use("/images", express.static(path.join(__dirname, "../images")));
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "/client/build")));

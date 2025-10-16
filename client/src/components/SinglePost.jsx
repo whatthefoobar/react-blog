@@ -67,7 +67,7 @@ export default function SinglePost() {
         {/* create update mode to picture also */}
         {post.photo && (
           <img
-            src={`${process.env.PUBLIC_URL}${post.photo}`}
+            src={`${axiosInstance.defaults.baseURL}${post.photo}`}
             alt=""
             className="singlePostImg"
           />

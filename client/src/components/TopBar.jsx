@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../context/Context";
+import axiosInstance from "../axiosInstance";
 // import '../css/components/topbar.css';
 
 export default function TopBar() {
@@ -59,7 +60,7 @@ export default function TopBar() {
               className="topImg"
               src={
                 user.profilePic
-                  ? `${process.env.PUBLIC_URL}/images/${user.profilePic}`
+                  ? `${axiosInstance.defaults.baseURL}/images/${user.profilePic}`
                   : "https://images.pexels.com/photos/4132327/pexels-photo-4132327.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
               }
               alt="user profile"
