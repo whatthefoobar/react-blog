@@ -12,6 +12,9 @@
     "build": "npm install && cd client && npm install && npm run build",
     "seed": "node api/seeder.js"
   },
+  "engines": {
+  "node": ">=18.0.0"
+},
   "keywords": [],
   "author": "",
   "license": "ISC",
