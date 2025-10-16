@@ -6,7 +6,11 @@ export default function Post({ post }) {
     <Link to={`/post/${post._id}`} className="link">
       <div className="post">
         {post.photo && (
-          <img className="postImg" src={post.photo} alt="blog post" />
+          <img
+            className="postImg"
+            src={`${process.env.PUBLIC_URL}${post.photo}`}
+            alt="blog post"
+          />
         )}
         <div className="postInfo">
           <div className="postCats">

@@ -23,10 +23,7 @@ export default function Write() {
       data.append("file", file);
 
       try {
-        const uploadRes = await axiosInstance.post(
-          `${process.env.REACT_APP_API_URL}/api/upload`,
-          data
-        );
+        const uploadRes = await axiosInstance.post(`/api/upload`, data);
         console.log("response", uploadRes);
         const imagePath = uploadRes.data.image;
         newPost.photo = imagePath;
@@ -37,10 +34,7 @@ export default function Write() {
     }
     console.log("new post:", newPost);
     try {
-      const res = await axiosInstance.post(
-        `${process.env.REACT_APP_API_URL}/api/posts"`,
-        newPost
-      );
+      const res = await axiosInstance.post(`/api/posts"`, newPost);
       window.location.replace("/post/" + res.data._id);
     } catch (err) {
       console.log(err);

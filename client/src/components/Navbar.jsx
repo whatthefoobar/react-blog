@@ -70,8 +70,8 @@ export default function Navbar() {
                   className="topImg"
                   src={
                     user.profilePic
-                      ? user.profilePic
-                      : "/images/defaultUserImg.jpg"
+                      ? `${process.env.PUBLIC_URL}${user.profilePic}`
+                      : `${process.env.PUBLIC_URL}/images/defaultUserImg.jpg`
                   }
                   alt="user profile"
                 />

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import Posts from "../components/Posts";
 import axiosInstance from "../axiosInstance";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -8,15 +8,27 @@ import Pagination from "../components/Pagination";
 export default function Home() {
   const [posts, setPosts] = useState([]);
   const [filteredPosts, setFilteredPosts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [currentPage, setCurrentPage] = useState(1);
+
   const { search } = useLocation();
   const navigate = useNavigate();
-  const [loading, setLoading] = useState(true);
-  const queryParams = new URLSearchParams(search);
-  const pageFromUrl = queryParams.get("page")
-    ? parseInt(queryParams.get("page"))
-    : 1;
-  const [currentPage, setCurrentPage] = useState(pageFromUrl);
 
+  // Memoize queryParams to prevent unnecessary rerenders
+  const queryParams = useMemo(() => new URLSearchParams(search), [search]);
+
+  // Memoize page number from URL
+  const pageFromUrl = useMemo(() => {
+    const page = queryParams.get("page");
+    return page ? parseInt(page) : 1;
+  }, [queryParams]);
+
+  // Initialize currentPage with pageFromUrl
+  useEffect(() => {
+    setCurrentPage(pageFromUrl);
+  }, [pageFromUrl]);
+
+  // Fetch all posts once
   useEffect(() => {
     const fetchPosts = async () => {
       try {
@@ -24,30 +36,34 @@ export default function Home() {
           `${process.env.REACT_APP_API_URL}/api/posts/`
         );
         setPosts(res.data);
-        setLoading(false);
       } catch (error) {
         console.error("Error fetching posts:", error);
-        setLoading(false); // Set loading to false even on error to avoid infinite loading state
+      } finally {
+        setLoading(false);
       }
     };
+
     fetchPosts();
   }, []);
 
+  // Filter posts based on category from URL
   useEffect(() => {
     const category = queryParams.get("cat");
-    const filteredPosts = category
+    const filtered = category
       ? posts.filter((post) => post.categories.includes(category))
       : posts;
 
-    setFilteredPosts(filteredPosts);
-    setCurrentPage(pageFromUrl); // Set to the page number from URL
-  }, [search, posts, pageFromUrl, queryParams]);
+    setFilteredPosts(filtered);
+    setCurrentPage(pageFromUrl); // keep page in sync with URL
+  }, [queryParams, posts, pageFromUrl]);
 
+  // Sync currentPage to URL
   useEffect(() => {
     queryParams.set("page", currentPage);
     navigate({ search: queryParams.toString() }, { replace: true });
   }, [currentPage, navigate, queryParams]);
 
+  // Pagination calculations
   const postsPerPage = 8;
   const lastPostIndex = currentPage * postsPerPage;
   const firstPostIndex = lastPostIndex - postsPerPage;
@@ -61,7 +77,7 @@ export default function Home() {
         <div className="loading">Loading posts...</div>
       ) : (
         <div className="home">
-          {filteredPosts.length !== 0 && Array.isArray(currentPosts) ? (
+          {filteredPosts.length > 0 && Array.isArray(currentPosts) ? (
             <>
               <Posts posts={currentPosts} allPosts={posts} />
               <Pagination

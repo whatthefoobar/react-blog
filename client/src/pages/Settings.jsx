@@ -36,17 +36,14 @@ export default function Settings() {
       data.append("file", file);
       updatedUser.profilePic = filename;
       try {
-        await axiosInstance.post(
-          `${process.env.REACT_APP_API_URL}/api/upload`,
-          data
-        );
+        await axiosInstance.post(`/api/upload`, data);
       } catch (err) {
         console.log(err);
       }
     }
     try {
       const res = await axiosInstance.put(
-        `${process.env.REACT_APP_API_URL}/api/users/${user._id}`,
+        `/api/users/${user._id}`,
         updatedUser
       );
       setSuccess(true);

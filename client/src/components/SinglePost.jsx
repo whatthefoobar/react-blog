@@ -23,9 +23,7 @@ export default function SinglePost() {
 
   useEffect(() => {
     const getPost = async () => {
-      const res = await axiosInstance.get(
-        `${process.env.REACT_APP_API_URL}/api/posts/${postId}`
-      );
+      const res = await axiosInstance.get(`/api/posts/${postId}`);
       console.log("individual post:", res.data);
       // we have a res.data.categories array
       setPost(res.data);
@@ -39,12 +37,9 @@ export default function SinglePost() {
 
   const handleDelete = async () => {
     try {
-      await axiosInstance.delete(
-        `${process.env.REACT_APP_API_URL}/api/posts/${post._id}`,
-        {
-          data: { username: user.username },
-        }
-      );
+      await axiosInstance.delete(`/api/posts/${post._id}`, {
+        data: { username: user.username },
+      });
       window.location.replace("/");
     } catch (err) {
       console.log(err);
@@ -53,15 +48,12 @@ export default function SinglePost() {
 
   const handleUpdate = async () => {
     try {
-      await axiosInstance.put(
-        `${process.env.REACT_APP_API_URL}/api/posts/${post._id}`,
-        {
-          username: user.username,
-          title,
-          desc,
-          categories: selectedCategories,
-        }
-      );
+      await axiosInstance.put(`/api/posts/${post._id}`, {
+        username: user.username,
+        title,
+        desc,
+        categories: selectedCategories,
+      });
       setCategories(selectedCategories);
       setUpdateMode(false);
     } catch (err) {
@@ -74,7 +66,11 @@ export default function SinglePost() {
       <div className="singlePostWrapper">
         {/* create update mode to picture also */}
         {post.photo && (
-          <img src={post.photo} alt="" className="singlePostImg" />
+          <img
+            src={`${process.env.PUBLIC_URL}${post.photo}`}
+            alt=""
+            className="singlePostImg"
+          />
         )}
         {updateMode ? (
           <input

@@ -5,11 +5,13 @@ import { Context } from "../context/Context";
 
 export default function TopBar() {
   const { user, dispatch } = useContext(Context);
-  const publicFolder = "/images/";
+  // const publicFolder = "/images/";
 
   const handleLogout = () => {
     dispatch({ type: "LOGOUT" });
   };
+
+  if (user) console.log(user.profilePic);
 
   return (
     <div className="top">
@@ -57,7 +59,7 @@ export default function TopBar() {
               className="topImg"
               src={
                 user.profilePic
-                  ? publicFolder + user.profilePic
+                  ? `${process.env.PUBLIC_URL}/images/${user.profilePic}`
                   : "https://images.pexels.com/photos/4132327/pexels-photo-4132327.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
               }
               alt="user profile"

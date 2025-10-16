@@ -14,7 +14,7 @@ dotenv.config();
 
 app.use(express.json());
 const corsOptions = {
-  origin: ["http://localhost:5000"], // Allow requests from this origin "https://react-blog-1s9g.onrender.com/",
+  origin: ["http://localhost:3000"], // Allow requests from this origin "https://react-blog-1s9g.onrender.com/",
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE", // Allow specified HTTP methods
   credentials: true, // Allow credentials (cookies, authorization headers, etc.)
   optionsSuccessStatus: 204, // Respond with a 204 No Content status for preflight requests

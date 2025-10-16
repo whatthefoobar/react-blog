@@ -9,9 +9,7 @@ const Sidebar = () => {
 
   const getCats = async () => {
     try {
-      const res = await axiosInstance.get(
-        `${process.env.REACT_APP_API_URL}/api/categories`
-      );
+      const res = await axiosInstance.get(`/api/categories`);
       setCats(res.data);
       setLoading(false);
     } catch (error) {
